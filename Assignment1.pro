@@ -26,10 +26,14 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        dialog.cpp
+        dialog.cpp \
+    ball.cpp \
+    coordinate.cpp
 
 HEADERS += \
-        dialog.h
+        dialog.h \
+    ball.h \
+    coordinate.h
 
 FORMS += \
         dialog.ui
