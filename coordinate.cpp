@@ -1,32 +1,41 @@
 #include "coordinate.h"
 
-Coordinate::Coordinate(unsigned int x,unsigned int y, unsigned int frameHeight) :
-    m_xCoordinate(x),
-    m_yCoordinate(y),
+Coordinate::Coordinate(int x,int y, unsigned int frameHeight) :
+    xCoordinate(x),
+    yCoordinate(y),
     m_frameHeight(frameHeight)
 {
 
 }
 
-unsigned int Coordinate::getQtRenderingXCoordinate() {
-    return m_xCoordinate;
+int Coordinate::getQtRenderingXCoordinate() {
+    return xCoordinate;
 }
 
-unsigned int Coordinate::getQtRenderingYCoordinate()
+int Coordinate::getQtRenderingYCoordinate()
 {
-    return m_frameHeight - m_yCoordinate;
+    return m_frameHeight - yCoordinate;
+}
+
+int Coordinate::getXCoordinate() {
+    return xCoordinate;
+}
+
+int Coordinate::getYCoordinate()
+{
+    return yCoordinate;
 }
 
 void Coordinate::changeInXCoordinate(int change) {
-    m_xCoordinate += change;
+    xCoordinate += change;
 }
 
 void Coordinate::changeInYCoordinate(int change) {
-    m_yCoordinate += change;
+    yCoordinate += change;
 }
 
 void Coordinate::setYCoordinateToZero(int offset) {
-    m_yCoordinate = offset;
+    yCoordinate = offset;
 }
 
 unsigned int Coordinate::getFrameHeight() {

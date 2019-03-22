@@ -21,20 +21,25 @@ public:
     ~Ball() {
     }
 
-    void render(QPainter &painter, unsigned int time);
+    void render(QPainter &painter);
     void move(int x, int y);
+    void jump();
     bool verticalCollision();
     bool horizontalCollision();
+    bool hitsGround();
     unsigned int getRadius();
+
+    void setXVelocity(int vel);
+    void setYVelocity(int vel);
 
 private:
     Ball();
 
-    Coordinate m_coordinate;
-    unsigned int m_radius;
-    double m_gravity;
-    double m_xVelocity;
-    double m_yVelocity;
+    Coordinate coordinate;
+    unsigned int radius;
+    double gravity;
+    double xVelocity;
+    double yVelocity;
 };
 
 #endif // BALL_H

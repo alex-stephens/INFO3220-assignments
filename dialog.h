@@ -5,8 +5,10 @@
 #include <QDialog>
 #include <QTimer>
 
-#define WINDOW_WIDTH 1000
-#define WINDOW_HEIGHT 600
+#define WINDOW_WIDTH 800
+#define WINDOW_HEIGHT 400
+
+#define BACKGROUND_SPEED 3
 
 namespace Ui {
 class Dialog;
@@ -21,6 +23,9 @@ public:
     ~Dialog();
 
     void keyPressEvent(QKeyEvent *event);
+    void updateBackground(int shift);
+    void setBackground(QString path, int offset);
+    void drawSprite(QString path);
 
 public slots:
     void nextFrame();
@@ -30,8 +35,9 @@ protected:
 
 private:
     Ui::Dialog *ui;
-    Ball m_ball;
-    unsigned int m_counter;
+    Ball ball;
+    int backgroundOffset = 0;
+    QMovie *movie;
 };
 
 
