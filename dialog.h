@@ -2,13 +2,12 @@
 #define DIALOG_H
 
 #include "ball.h"
+#include "background.h"
+#include "params.h"
+#include "sprite.h"
+
 #include <QDialog>
 #include <QTimer>
-
-#define WINDOW_WIDTH 800
-#define WINDOW_HEIGHT 400
-
-#define BACKGROUND_SPEED 3
 
 namespace Ui {
 class Dialog;
@@ -36,6 +35,8 @@ protected:
 private:
     Ui::Dialog *ui;
     Ball ball;
+    Background background;
+    Sprite sprite;
     int backgroundOffset = 0;
     QMovie *movie;
 };

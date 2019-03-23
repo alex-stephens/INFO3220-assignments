@@ -28,12 +28,17 @@ SOURCES += \
         main.cpp \
         dialog.cpp \
     ball.cpp \
-    coordinate.cpp
+    coordinate.cpp \
+    background.cpp \
+    sprite.cpp
 
 HEADERS += \
         dialog.h \
     ball.h \
-    coordinate.h
+    coordinate.h \
+    background.h \
+    params.h \
+    sprite.h
 
 FORMS += \
         dialog.ui

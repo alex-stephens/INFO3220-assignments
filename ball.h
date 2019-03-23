@@ -1,7 +1,9 @@
 #ifndef BALL_H
 #define BALL_H
 
+#include "params.h"
 #include "coordinate.h"
+
 #include <QPainter>
 #include <QKeyEvent>
 

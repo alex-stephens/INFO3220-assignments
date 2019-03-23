@@ -1,5 +1,5 @@
 #include "ball.h"
-#include "dialog.h"
+
 #include <QDebug>
 
 Ball::Ball(Coordinate coordinate) :
