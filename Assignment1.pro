@@ -30,7 +30,8 @@ SOURCES += \
     ball.cpp \
     coordinate.cpp \
     background.cpp \
-    sprite.cpp
+    sprite.cpp \
+    config.cpp
 
 HEADERS += \
         dialog.h \
@@ -38,10 +39,14 @@ HEADERS += \
     coordinate.h \
     background.h \
     params.h \
-    sprite.h
+    sprite.h \
+    config.h
 
 FORMS += \
         dialog.ui
+
+QT += \
+        xml
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

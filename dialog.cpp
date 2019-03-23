@@ -15,8 +15,8 @@ Dialog::Dialog(QWidget *parent) :
     ui(new Ui::Dialog),
     ball(Ball(Coordinate(100, 20, WINDOW_HEIGHT), 20, -9.8, 0, 0)),
     background("/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/background.png", 3),
-    sprite("/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/sprite_", ".gif", 3),
-    backgroundOffset(0)
+    sprite(Sprite(Coordinate(100,100, WINDOW_HEIGHT),
+            "/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/sprite_", ".gif", 3))
 {
     ui->setupUi(this);
     this->resize(WINDOW_WIDTH, WINDOW_HEIGHT);

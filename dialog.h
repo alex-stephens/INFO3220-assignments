@@ -5,6 +5,7 @@
 #include "background.h"
 #include "params.h"
 #include "sprite.h"
+#include "config.h"
 
 #include <QDialog>
 #include <QTimer>

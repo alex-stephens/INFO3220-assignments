@@ -7,13 +7,15 @@
 #include <QPixmap>
 #include <QPainter>
 
+#include "coordinate.h"
+
 class Sprite
 {
 public:
-    Sprite(QString path_prefix, QString path_extension, unsigned int num_frames);
+    Sprite(Coordinate coordinate, QString path_prefix, QString path_extension, unsigned int num_frames);
 
     void render(QPainter &painter);
-    void update();
+    void updateImage();
 
     ~Sprite() {
 
@@ -22,6 +24,8 @@ public:
 private:
     QString path_prefix;
     QString extension;
+
+    Coordinate coordinate;
 
     const unsigned int num_frames;
 
