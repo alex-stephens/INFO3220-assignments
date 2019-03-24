@@ -41,6 +41,8 @@ private:
     int backgroundOffset = 0;
     QMovie *movie;
 //    Config config;
+
+    bool paused = false;
 };
 
 

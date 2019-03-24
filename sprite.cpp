@@ -5,7 +5,7 @@
 Sprite::Sprite(Coordinate coordinate, unsigned int size, QString path_prefix, QString extension, unsigned int num_frames)
     : coordinate(coordinate),
       size(size),
-      path_prefix(path_prefix),
+      filename_prefix(path_prefix),
       extension(extension),
       num_frames(num_frames),
       frame(1),
@@ -19,10 +19,10 @@ Sprite::Sprite(Coordinate coordinate, unsigned int size, QString path_prefix, QS
 
 void Sprite::render(QPainter &painter) {
 
-    updateImage();
+    update();
 //    coordinate.setYCoordinateToZero(height/2);
 
-    QString path = path_prefix + QString::number(img_num) + extension;
+    QString path = RESOURCES_PATH + filename_prefix + QString::number(img_num) + extension;
     QPixmap stickman(path);
 
 //    painter.drawPixmap(QRect(coordinate.getQtRenderingXCoordinate()-width/2, coordinate.getQtRenderingYCoordinate()-height/2,
@@ -33,7 +33,7 @@ void Sprite::render(QPainter &painter) {
                              width, height, stickman);
 }
 
-void Sprite::updateImage() {
+void Sprite::update() {
     frame = (frame + 1) % (frame_hold * num_frames);
     img_num = 1 + (frame / frame_hold);
 }

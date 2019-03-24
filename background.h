@@ -2,16 +2,17 @@
 #define BACKGROUND_H
 
 #include "params.h"
+#include "graphics.h"
 
 #include <QString>
 #include <QPixmap>
 #include <QPainter>
 
-class Background
+class Background : public Graphics
 {
 public:
     Background();
-    Background(QString path, int speed);
+    Background(QString filename, int speed);
 
 
     void render(QPainter &painter);
@@ -22,7 +23,7 @@ public:
     }
 
 private:
-    QString path;
+    QString filename;
 
     int speed;
     int offset;

@@ -2,27 +2,28 @@
 #define SPRITE_H
 
 #include "params.h"
+#include "coordinate.h"
+#include "graphics.h"
 
 #include <QString>
 #include <QPixmap>
 #include <QPainter>
 
-#include "coordinate.h"
 
-class Sprite
+class Sprite : public Graphics
 {
 public:
-    Sprite(Coordinate coordinate, unsigned int size, QString path_prefix, QString path_extension, unsigned int num_frames);
+    Sprite(Coordinate coordinate, unsigned int size, QString filename_prefix, QString path_extension, unsigned int num_frames);
 
     void render(QPainter &painter);
-    void updateImage();
+    void update();
 
     ~Sprite() {
 
     }
 
 private:
-    QString path_prefix;
+    QString filename_prefix;
     QString extension;
 
     Coordinate coordinate;

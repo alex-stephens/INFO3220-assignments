@@ -1,7 +1,7 @@
 <root>
-	<size>large</size>
+	<size>tiny</size>
 	<position>150</position>
-	<velocity>5</velocity>
+	<velocity>3</velocity>
 	<background>background.png</background>
 </root>
 

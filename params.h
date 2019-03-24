@@ -10,16 +10,13 @@
 
 #define BACKGROUND_SPEED 3
 
-#define SIZE_TINY 30
-#define SIZE_NORMAL 100
-#define SIZE_LARGE 150
-#define SIZE_GIANT 300
+#define RESOURCES_PATH "/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/"
 
 static std::map<QString, int> SIZE = {
     { "tiny", 30 },
-    { "normal", 100 },
-    { "large", 150 },
-    { "giant", 300 }
+    { "normal", 50 },
+    { "large", 70 },
+    { "giant", 100 }
 };
 
 

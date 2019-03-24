@@ -31,7 +31,9 @@ SOURCES += \
     coordinate.cpp \
     background.cpp \
     sprite.cpp \
-    config.cpp
+    config.cpp \
+    graphics.cpp \
+    pause.cpp
 
 HEADERS += \
         dialog.h \
@@ -40,7 +42,9 @@ HEADERS += \
     background.h \
     params.h \
     sprite.h \
-    config.h
+    config.h \
+    graphics.h \
+    pause.h
 
 FORMS += \
         dialog.ui

@@ -1,17 +1,18 @@
 #include "background.h"
 
 Background::Background()
-    : path(""),
+    : filename(""),
       speed(0),
       offset(0) { }
 
 Background::Background(QString path, int speed)
-    : path(path),
+    : filename(path),
       speed(speed),
       offset(0) { }
 
 void Background::render(QPainter &painter) {
-    QPixmap bkgnd(path);
+    QString fullpath = RESOURCES_PATH + filename;
+    QPixmap bkgnd(fullpath);
 
     update();
 
