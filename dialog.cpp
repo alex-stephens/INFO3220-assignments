@@ -10,24 +10,20 @@
 #include <QDebug>
 
 
-Dialog::Dialog(QWidget *parent) :
-    QDialog(parent),
+Dialog::Dialog(Config config) :
+    QDialog(),
     ui(new Ui::Dialog),
-    ball(Ball(Coordinate(100, 20, WINDOW_HEIGHT), 20, -9.8, 0, 0)),
-    background("/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/background.png", 3),
-    sprite(Sprite(Coordinate(100,100, WINDOW_HEIGHT),
+    background("/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/" + config.getBackgroundFile(),
+               config.getVelocity()),
+    sprite(Sprite(Coordinate(config.getPosition(),config.getSize()/2, WINDOW_HEIGHT), config.getSize(),
             "/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/sprite_", ".gif", 3))
 {
     ui->setupUi(this);
     this->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
     backgroundOffset = 0;
 
-    // create frames for sprite
-//    std::vector<std::string> frames;
-//    for (int i = 1; i <= 3; i++) {
-//        frames.push_back("/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/sprite_"
-//                         + std::to_string(i) + ".gif");
-//    }
+//    QString path = "/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/" + config.getBackgroundFile();
+//    background = Background(path, config.getVelocity());
 
 
     QTimer *timer = new QTimer(this);
@@ -39,19 +35,19 @@ void Dialog::keyPressEvent(QKeyEvent *event){
     int step = 20;
     if (event->key() == Qt::Key_Left){
         qDebug("left");
-        ball.setXVelocity(-5);
+//        ball.setXVelocity(-5);
     }
     else if (event->key() == Qt::Key_Right){
         qDebug("right");
-        ball.setXVelocity(5);
+//        ball.setXVelocity(5);
     }
     else if (event->key() == Qt::Key_Up){
         qDebug("up");
-        ball.jump();
+//        ball.jump();
     }
     else if (event->key() == Qt::Key_Down){
         qDebug("down");
-        ball.move(0, -step);
+//        ball.move(0, -step);
     }
 }
 
@@ -95,7 +91,7 @@ void Dialog::paintEvent(QPaintEvent *event) {
 //    drawSprite(sprite_path);
 
     sprite.render(painter);
-    ball.render(painter);
+//    ball.render(painter);
 }
 
 void Dialog::nextFrame() {

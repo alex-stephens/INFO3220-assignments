@@ -1,6 +1,6 @@
 <root>
-	<size>normal</size>
-	<position>50</position>
+	<size>large</size>
+	<position>150</position>
 	<velocity>5</velocity>
 	<background>background.png</background>
 </root>

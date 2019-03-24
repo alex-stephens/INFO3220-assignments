@@ -19,7 +19,7 @@ class Dialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit Dialog(QWidget *parent = 0);
+    explicit Dialog(Config config);
     ~Dialog();
 
     void keyPressEvent(QKeyEvent *event);
@@ -35,11 +35,12 @@ protected:
 
 private:
     Ui::Dialog *ui;
-    Ball ball;
+//    Ball ball;
     Background background;
     Sprite sprite;
     int backgroundOffset = 0;
     QMovie *movie;
+//    Config config;
 };
 
 

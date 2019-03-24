@@ -1,10 +1,30 @@
 #include "config.h"
 
+QString Config::getBackgroundFile() {
+    return background_file;
+}
+
+unsigned int Config::getSize() {
+    return size;
+}
+
+int Config::getPosition() {
+    return position;
+}
+
+int Config::getVelocity() {
+    return velocity;
+}
+
 Config::Config(QString path) {
 
     QDomDocument dom;
 
-    QFile f("/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/config.xml");
+    if (!isValidFile(path)){
+        throw "Invalid configuration file path";
+    }
+
+    QFile f(path);
 
     // Set data into the QDomDocument before processing
     dom.setContent(&f);
@@ -46,4 +66,9 @@ Config::Config(QString path) {
     qDebug() << velocity;
     qDebug() << size;
     qDebug() << background_file;
+}
+
+bool Config::isValidFile(QString path) {
+    QFileInfo f(path);
+    return (f.exists() && f.isFile());
 }

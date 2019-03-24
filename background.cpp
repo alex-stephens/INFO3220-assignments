@@ -1,5 +1,10 @@
 #include "background.h"
 
+Background::Background()
+    : path(""),
+      speed(0),
+      offset(0) { }
+
 Background::Background(QString path, int speed)
     : path(path),
       speed(speed),

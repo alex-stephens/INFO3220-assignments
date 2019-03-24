@@ -12,7 +12,7 @@
 class Sprite
 {
 public:
-    Sprite(Coordinate coordinate, QString path_prefix, QString path_extension, unsigned int num_frames);
+    Sprite(Coordinate coordinate, unsigned int size, QString path_prefix, QString path_extension, unsigned int num_frames);
 
     void render(QPainter &painter);
     void updateImage();
@@ -33,6 +33,11 @@ private:
     unsigned int frame;
 
     unsigned int frame_hold;
+
+    unsigned int size;
+    unsigned int height;
+    unsigned int width;
+
 };
 
 #endif // SPRITE_H

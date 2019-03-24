@@ -10,6 +10,7 @@
 class Background
 {
 public:
+    Background();
     Background(QString path, int speed);
 
 

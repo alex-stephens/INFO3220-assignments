@@ -8,6 +8,7 @@
 #include <QString>
 #include <iostream>
 #include <stdexcept>
+#include <QFileInfo>
 
 
 class Config
@@ -19,14 +20,17 @@ public:
 
     }
 
-    int getSize();
+    unsigned int getSize();
     int getPosition();
     int getVelocity();
     QString getBackgroundFile();
 
 
 private:
-    int size;
+
+    bool isValidFile(QString path);
+
+    unsigned int size;
     int position;
     int velocity;
     QString background_file;
