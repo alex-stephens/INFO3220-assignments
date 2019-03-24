@@ -5,8 +5,8 @@ Background::Background()
       speed(0),
       offset(0) { }
 
-Background::Background(QString path, int speed)
-    : filename(path),
+Background::Background(QString filename, int speed)
+    : filename(filename),
       speed(speed),
       offset(0) { }
 
@@ -22,4 +22,8 @@ void Background::render(QPainter &painter) {
 
 void Background::update() {
     offset += speed;
+}
+
+void Background::setFilename(QString filename) {
+    filename = filename;
 }

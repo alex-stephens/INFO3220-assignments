@@ -2,6 +2,16 @@
 
 #include <QDebug>
 
+Sprite::Sprite()
+    : size(10),
+      filename_prefix(""),
+      extension(""),
+      num_frames(1),
+      frame(1),
+      frame_hold(1) {
+}
+
+
 Sprite::Sprite(Coordinate coordinate, unsigned int size, QString path_prefix, QString extension, unsigned int num_frames)
     : coordinate(coordinate),
       size(size),

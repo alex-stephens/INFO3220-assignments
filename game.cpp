@@ -1,4 +1,4 @@
-#include "dialog.h"
+#include "game.h"
 
 #include "ui_dialog.h"
 #include "pause.h"
@@ -10,12 +10,11 @@
 #include <QMovie>
 #include <QDebug>
 
-
-Dialog::Dialog(Config config) :
-    QDialog(),
-    ui(new Ui::Dialog),
-    background(config.getBackgroundFile(), config.getVelocity()),
-    sprite(Sprite(Coordinate(config.getPosition(), config.getSize()/2, WINDOW_HEIGHT), config.getSize(),"sprite_", ".gif", 3))
+Game::Game(Background background, Sprite sprite)
+    : QDialog(),
+      ui(new Ui::Dialog),
+      background(background),
+      sprite(sprite)
 {
     ui->setupUi(this);
     this->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -27,7 +26,24 @@ Dialog::Dialog(Config config) :
     timer->start(16);
 }
 
-void Dialog::keyPressEvent(QKeyEvent *event){
+
+Game::Game(Config config)
+    : QDialog(),
+      ui(new Ui::Dialog),
+      background(config.getBackgroundFile(), config.getVelocity()),
+      sprite(Coordinate(config.getPosition(), config.getSize()/2, WINDOW_HEIGHT), config.getSize(),"sprite_", ".gif", 3)
+{
+    ui->setupUi(this);
+    this->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
+    backgroundOffset = 0;
+
+
+    QTimer *timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(nextFrame()));
+    timer->start(16);
+}
+
+void Game::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_Left){
         qDebug("left");
 //        ball.setXVelocity(-5);
@@ -50,12 +66,12 @@ void Dialog::keyPressEvent(QKeyEvent *event){
     }
 }
 
-Dialog::~Dialog()
+Game::~Game()
 {
     delete ui;
 }
 
-void Dialog::paintEvent(QPaintEvent *event) {
+void Game::paintEvent(QPaintEvent *event) {
 
     QPainter painter(this);
 
@@ -70,6 +86,6 @@ void Dialog::paintEvent(QPaintEvent *event) {
 
 }
 
-void Dialog::nextFrame() {
+void Game::nextFrame() {
     update();
 }

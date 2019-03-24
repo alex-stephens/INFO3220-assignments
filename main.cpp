@@ -1,11 +1,10 @@
-#include "dialog.h"
+#include "game.h"
+
+#include "gamebuilder.h"
 
 #include <QApplication>
-
-
 #include <iostream>
 #include <QJsonDocument>
-
 #include <QtXml>
 #include <QFile>
 
@@ -16,14 +15,21 @@ int main(int argc, char *argv[])
 
         Config config(config_file);
 
+        GameBuilder gameBuilder(config);
+        gameBuilder.setSprite("sprite_", ".gif", 3);
+
         QApplication a(argc, argv);
-        Dialog w(config);
-        w.show();
+        Game * game = gameBuilder.buildGame();
+        game->show();
+
+//        QApplication a(argc, argv);
+//        Game game(config);
+//        game.show();
 
         return a.exec();
 
     } catch (char const* s) {
-        std::cout << "Invalid configuration file provided";
+        std::cerr << "Invalid configuration file provided";
     }
 
 

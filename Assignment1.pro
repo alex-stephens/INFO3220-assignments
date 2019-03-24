@@ -26,17 +26,17 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-        dialog.cpp \
     ball.cpp \
     coordinate.cpp \
     background.cpp \
     sprite.cpp \
     config.cpp \
     graphics.cpp \
-    pause.cpp
+    pause.cpp \
+    game.cpp \
+    gamebuilder.cpp
 
 HEADERS += \
-        dialog.h \
     ball.h \
     coordinate.h \
     background.h \
@@ -44,7 +44,9 @@ HEADERS += \
     sprite.h \
     config.h \
     graphics.h \
-    pause.h
+    pause.h \
+    game.h \
+    gamebuilder.h
 
 FORMS += \
         dialog.ui

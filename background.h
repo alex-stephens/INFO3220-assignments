@@ -22,6 +22,8 @@ public:
 
     }
 
+    void setFilename(QString filename);
+
 private:
     QString filename;
 

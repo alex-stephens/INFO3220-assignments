@@ -14,18 +14,20 @@ namespace Ui {
 class Dialog;
 }
 
-class Dialog : public QDialog
+class Game : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit Dialog(Config config);
-    ~Dialog();
+    Game(Background background, Sprite sprite);
+    explicit Game(Config config);
 
     void keyPressEvent(QKeyEvent *event);
     void updateBackground(int shift);
     void setBackground(QString path, int offset);
     void drawSprite(QString path);
+
+    ~Game();
 
 public slots:
     void nextFrame();

@@ -13,6 +13,7 @@
 class Sprite : public Graphics
 {
 public:
+    Sprite();
     Sprite(Coordinate coordinate, unsigned int size, QString filename_prefix, QString path_extension, unsigned int num_frames);
 
     void render(QPainter &painter);
@@ -28,7 +29,7 @@ private:
 
     Coordinate coordinate;
 
-    const unsigned int num_frames;
+    unsigned int num_frames;
 
     unsigned int img_num;
     unsigned int frame;

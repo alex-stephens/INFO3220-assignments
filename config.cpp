@@ -33,6 +33,7 @@ Config::Config(QString path) {
     // Extract the root markup
     QDomElement root = dom.documentElement();
 
+    // extract all configuration parameters, and check for invalid parameters
     for (int i = 0; i < root.childNodes().count(); i++){
 
         QDomNode child = root.childNodes().at(i);

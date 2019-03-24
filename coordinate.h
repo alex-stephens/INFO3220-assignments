@@ -6,6 +6,8 @@
 class Coordinate
 {
 public:
+    Coordinate();
+
     Coordinate(
         int xCoordinate,
         int yCoordinate,
@@ -24,6 +26,10 @@ public:
     void setYCoordinateToZero(int offset);
 
     unsigned int getFrameHeight();
+
+    ~Coordinate() {
+
+    }
 
 private:
     int xCoordinate;

@@ -1,5 +1,13 @@
 #include "coordinate.h"
 
+Coordinate::Coordinate() :
+    xCoordinate(0),
+    yCoordinate(0),
+    m_frameHeight(400)
+{
+
+}
+
 Coordinate::Coordinate(int x,int y, unsigned int frameHeight) :
     xCoordinate(x),
     yCoordinate(y),
