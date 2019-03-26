@@ -4,6 +4,11 @@ QString Config::getBackgroundFile() {
     return background_file;
 }
 
+
+QString Config::getNightBackgroundFile() {
+    return night_background_file;
+}
+
 unsigned int Config::getSize() {
     return size;
 }
@@ -53,6 +58,10 @@ Config::Config(QString path) {
 
         else if (child.nodeName() == "background") {
             background_file = child.firstChild().toText().data();
+        }
+
+        else if (child.nodeName() == "nightbackground") {
+            night_background_file = child.firstChild().toText().data();
         }
 
         else {

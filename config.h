@@ -24,6 +24,7 @@ public:
     int getPosition();
     int getVelocity();
     QString getBackgroundFile();
+    QString getNightBackgroundFile();
 
 
 private:
@@ -34,6 +35,7 @@ private:
     int position;
     int velocity;
     QString background_file;
+    QString night_background_file;
 };
 
 #endif // CONFIG_H

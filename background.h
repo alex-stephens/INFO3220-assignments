@@ -23,12 +23,18 @@ public:
     }
 
     void setFilename(QString filename);
+    void setNightModeFilename(QString filename);
+    void toggleNightMode();
 
 private:
     QString filename;
 
     int speed;
     int offset;
+
+    bool nightMode = false;
+    QString dayModeFilename;
+    QString nightModeFilename;
 };
 
 #endif // BACKGROUND_H

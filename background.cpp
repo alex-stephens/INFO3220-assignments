@@ -5,10 +5,11 @@ Background::Background()
       speed(0),
       offset(0) { }
 
-Background::Background(QString filename, int speed)
-    : filename(filename),
+Background::Background(QString f, int speed)
+    : filename(f),
       speed(speed),
-      offset(0) { }
+      offset(0),
+      dayModeFilename(f) { }
 
 void Background::render(QPainter &painter) {
     QString fullpath = RESOURCES_PATH + filename;
@@ -24,6 +25,21 @@ void Background::update() {
     offset += speed;
 }
 
-void Background::setFilename(QString filename) {
-    filename = filename;
+void Background::setFilename(QString f) {
+    filename = f;
+    dayModeFilename = f;
+}
+
+void Background::setNightModeFilename(QString f) {
+    nightModeFilename = f;
+}
+
+void Background::toggleNightMode() {
+    nightMode ^= 1;
+    if (nightMode && nightModeFilename.size() > 0) {
+        filename = nightModeFilename;
+    }
+    else {
+        filename = dayModeFilename;
+    }
 }

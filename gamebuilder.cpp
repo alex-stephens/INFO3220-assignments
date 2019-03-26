@@ -11,6 +11,8 @@ void GameBuilder::setConfig(Config c) {
 
     // once the config is set, the background can be constructed
     background = Background(config.getBackgroundFile(), config.getVelocity());
+    background.setNightModeFilename(config.getNightBackgroundFile());
+
 }
 
 void GameBuilder::setSprite(QString filename, QString extension, int numImages) {

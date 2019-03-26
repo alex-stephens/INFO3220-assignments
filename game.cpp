@@ -44,25 +44,11 @@ Game::Game(Config config)
 }
 
 void Game::keyPressEvent(QKeyEvent *event){
-    if (event->key() == Qt::Key_Left){
-        qDebug("left");
-//        ball.setXVelocity(-5);
-    }
-    else if (event->key() == Qt::Key_Right){
-        qDebug("right");
-//        ball.setXVelocity(5);
-    }
-    else if (event->key() == Qt::Key_Up){
-        qDebug("up");
-//        ball.jump();
-    }
-    else if (event->key() == Qt::Key_Down){
-        qDebug("down");
-//        ball.move(0, -step);
-    }
-    else if (event->key() == Qt::Key_P){
+    if (event->key() == Qt::Key_P){
         paused = !paused;
-
+    }
+    else if(event->key() == Qt::Key_N){
+        background.toggleNightMode();
     }
 }
 
