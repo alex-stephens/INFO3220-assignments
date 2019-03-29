@@ -5,6 +5,8 @@ Background::Background()
       speed(0),
       offset(0) { }
 
+Background::~Background() {}
+
 Background::Background(QString f, int speed)
     : filename(f),
       speed(speed),

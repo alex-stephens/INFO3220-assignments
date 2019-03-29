@@ -14,26 +14,55 @@
 class Config
 {
 public:
+    /**
+     * @brief Config path-based constructor
+     * @param path to config file
+     */
     Config(QString path);
 
-    ~Config() {
+    /**
+     * @brief ~Config destructor
+     */
+    virtual ~Config();
 
-    }
-
+    /**
+     * @brief getSize
+     * @return size parameter
+     */
     unsigned int getSize();
+
+    /**
+     * @brief getPosition
+     * @return position parameter
+     */
     int getPosition();
+
+    /**
+     * @brief getVelocity
+     * @return velocity parameter
+     */
     int getVelocity();
+
+    /**
+     * @brief getBackgroundFile
+     * @return background file parameter
+     */
     QString getBackgroundFile();
+
+    /**
+     * @brief getNightBackgroundFile
+     * @return night background file parameter
+     */
     QString getNightBackgroundFile();
 
 
 private:
 
     bool isValidFile(QString path);
-
     unsigned int size;
     int position;
     int velocity;
+
     QString background_file;
     QString night_background_file;
 };

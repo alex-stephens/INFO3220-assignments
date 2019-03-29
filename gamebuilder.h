@@ -13,8 +13,6 @@ class GameBuilder
 public:
     GameBuilder(Config config);
 
-
-//    void setBackground(Config config);
     void setConfig(Config c);
     void setSprite(QString filename, QString extension, int numImages);
 

@@ -1,15 +1,5 @@
 #include "game.h"
 
-#include "ui_dialog.h"
-#include "pause.h"
-
-#include <iostream>
-#include <vector>
-#include <QDir>
-#include <QLabel>
-#include <QMovie>
-#include <QDebug>
-
 Game::Game(Background background, Sprite sprite)
     : QDialog(),
       ui(new Ui::Dialog),
@@ -25,7 +15,6 @@ Game::Game(Background background, Sprite sprite)
     connect(timer, SIGNAL(timeout()), this, SLOT(nextFrame()));
     timer->start(16);
 }
-
 
 Game::Game(Config config)
     : QDialog(),

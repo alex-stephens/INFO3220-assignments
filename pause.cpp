@@ -3,6 +3,8 @@
 Pause::Pause(QString filename)
     : filename(filename) { }
 
+Pause::~Pause() {}
+
 void Pause::render(QPainter &painter) {
     QString fullpath = RESOURCES_PATH + filename;
     QPixmap pause_text(fullpath);

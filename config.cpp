@@ -1,5 +1,7 @@
 #include "config.h"
 
+Config::~Config() {}
+
 QString Config::getBackgroundFile() {
     return background_file;
 }

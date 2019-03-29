@@ -12,6 +12,7 @@
 
 #define RESOURCES_PATH "/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/"
 
+// map of size strings to pixel values
 static std::map<QString, int> SIZE = {
     { "tiny", 30 },
     { "normal", 50 },

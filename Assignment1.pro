@@ -26,7 +26,6 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-    ball.cpp \
     coordinate.cpp \
     background.cpp \
     sprite.cpp \
@@ -37,7 +36,6 @@ SOURCES += \
     gamebuilder.cpp
 
 HEADERS += \
-    ball.h \
     coordinate.h \
     background.h \
     params.h \

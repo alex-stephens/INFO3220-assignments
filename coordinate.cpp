@@ -8,6 +8,8 @@ Coordinate::Coordinate() :
 
 }
 
+Coordinate::~Coordinate() {}
+
 Coordinate::Coordinate(int x,int y, unsigned int frameHeight) :
     xCoordinate(x),
     yCoordinate(y),

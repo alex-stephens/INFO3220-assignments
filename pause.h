@@ -10,14 +10,22 @@
 class Pause : public Graphics
 {
 public:
+    /**
+     * @brief Pause constructor from image filename
+     * @param filename
+     */
     Pause(QString filename);
 
-
+    /**
+     * @brief render show a frame of the pause screen
+     * @param painter game dialog window painter
+     */
     void render(QPainter &painter);
 
-    ~Pause() {
-
-    }
+    /**
+     * @brief ~Pause virtual destructor
+     */
+    virtual ~Pause();
 
 private:
     QString filename;

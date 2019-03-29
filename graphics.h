@@ -6,7 +6,15 @@
 class Graphics
 {
 public:
+    /**
+     * @brief ~Graphics virtual destructor
+     */
     virtual ~Graphics() { }
+
+    /**
+     * @brief render
+     * @param painter for dialog window
+     */
     virtual void render(QPainter &painter) = 0;
 };
 

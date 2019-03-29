@@ -1,8 +1,9 @@
-<root>
-	<size>tiny</size>
+<config>
+	<size>large</size>
 	<position>150</position>
 	<velocity>3</velocity>
 	<background>background.png</background>
+
 	<nightbackground>background_night.png</nightbackground>
-</root>
+</config>
 

@@ -11,6 +11,8 @@ Sprite::Sprite()
       frame_hold(1) {
 }
 
+Sprite::~Sprite() {}
+
 
 Sprite::Sprite(Coordinate coordinate, unsigned int size, QString path_prefix, QString extension, unsigned int num_frames)
     : coordinate(coordinate),
