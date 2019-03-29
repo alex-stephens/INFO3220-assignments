@@ -7,6 +7,7 @@
 #include "sprite.h"
 #include "game.h"
 
+#include <QSound>
 
 class GameBuilder
 {
@@ -15,6 +16,8 @@ public:
 
     void setConfig(Config c);
     void setSprite(QString filename, QString extension, int numImages);
+
+    void addSoundtrack();
 
     ~GameBuilder() {
 

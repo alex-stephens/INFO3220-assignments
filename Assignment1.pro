@@ -50,7 +50,8 @@ FORMS += \
         dialog.ui
 
 QT += \
-        xml
+        xml \
+        multimedia
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

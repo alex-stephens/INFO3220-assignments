@@ -11,6 +11,10 @@ QString Config::getNightBackgroundFile() {
     return night_background_file;
 }
 
+QString Config::getSoundtrack() {
+    return soundtrack;
+}
+
 unsigned int Config::getSize() {
     return size;
 }
@@ -64,6 +68,10 @@ Config::Config(QString path) {
 
         else if (child.nodeName() == "nightbackground") {
             night_background_file = child.firstChild().toText().data();
+        }
+
+        else if (child.nodeName() == "soundtrack") {
+            soundtrack = child.firstChild().toText().data();
         }
 
         else {

@@ -17,6 +17,7 @@
 #include <QMovie>
 #include <QDebug>
 #include <QKeyEvent>
+#include <QSound>
 
 namespace Ui {
 class Dialog;
@@ -64,6 +65,16 @@ public:
      */
     void setBackground(QString path, int offset);
 
+    /**
+     * @brief addSoundtrack
+     * @param soundtrack object
+     */
+    void setSoundtrack(QString s);
+
+    void playSoundtrack();
+
+    void pauseSoundtrack();
+
 public slots:
     /**
      * @brief nextFrame
@@ -85,7 +96,10 @@ private:
 
     int backgroundOffset = 0;
     bool paused = false;
+
+    QSound * soundtrack;
 };
+
 
 
 #endif // DIALOG_H

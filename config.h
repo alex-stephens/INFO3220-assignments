@@ -55,6 +55,12 @@ public:
      */
     QString getNightBackgroundFile();
 
+    /**
+     * @brief getSoundtrack
+     * @return soundtrack file parameter (must use .wav format)
+     */
+    QString getSoundtrack();
+
 
 private:
 
@@ -65,6 +71,7 @@ private:
 
     QString background_file;
     QString night_background_file;
+    QString soundtrack;
 };
 
 #endif // CONFIG_H

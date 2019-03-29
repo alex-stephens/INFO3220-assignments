@@ -2,12 +2,14 @@
 
 #include "gamebuilder.h"
 #include "params.h"
+#include "soundtrack.h"
 
 #include <QApplication>
 #include <iostream>
 #include <QJsonDocument>
 #include <QtXml>
 #include <QFile>
+#include <QSound>
 
 int main(int argc, char *argv[])
 {
@@ -21,6 +23,10 @@ int main(int argc, char *argv[])
 
         QApplication a(argc, argv);
         Game * game = gameBuilder.buildGame();
+
+        game->setSoundtrack("/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/music.wav");
+        game->playSoundtrack();
+
         game->show();
 
         return a.exec();

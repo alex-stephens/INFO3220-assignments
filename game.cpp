@@ -32,9 +32,28 @@ Game::Game(Config config)
     timer->start(16);
 }
 
+void Game::setSoundtrack(QString s) {
+    soundtrack = new QSound("/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/music.wav");
+    soundtrack->setLoops(1000000); // play until the heat death of the universe
+}
+
+void Game::playSoundtrack() {
+    soundtrack->play();
+}
+
+void Game::pauseSoundtrack() {
+    soundtrack->stop();
+}
+
 void Game::keyPressEvent(QKeyEvent *event){
     if (event->key() == Qt::Key_P){
         paused = !paused;
+        if (paused) {
+            pauseSoundtrack();
+        }
+        else {
+            playSoundtrack();
+        }
     }
     else if(event->key() == Qt::Key_N){
         background.toggleNightMode();
