@@ -9,6 +9,18 @@ This project aims to follow the [C++ Core Guidelines](https://github.com/isocpp/
 + Class names in camel case, with the first letter also capitalised
 + 4 spaces per tab
 
+## OOD overview
+
+The most important classes in terms of the overall design are as follows
+
++ **`Game`**: this is a subclass of `QDialog`, through which the main graphical user interface is implemented. This class interfaces with most of the other classes described here, as it represents the core of our game. 
++ **`Graphics`**: an abstract class for graphics objects.
++ **`Background`**: graphics object (subclass of `Graphics`) implementing the side-scrolling background of the game
++ **`Sprite`**: graphics object (subclass of `Graphics`) implementing the stickman itself
++ **`Config`**: handles the parsing of a `config.xml` file storing game parameters
++ **`Coordinate`**: implements a Cartesian coordinate system with the x-axis pointing to the right and y-axis pointing up, origin at the bottom-left of the screen, over the top of QDialog's coordinate system. Adapted from the first INFO3220 tutorial. 
+
+A few other classes are used but they are mostly quite straightforward, with the exception of the Builder classes discussed below. 
 
 ## Design pattern
 
