@@ -10,9 +10,19 @@ This project aims to follow the [C++ Core Guidelines](https://github.com/isocpp/
 + 4 spaces per tab
 
 
+## Design pattern
+
+The code makes use of a Builder design pattern, specifically for the `Game` class which implements the main dialog window that the user interfaces with during the game. 
+
+In this first stage of the assignment, the design pattern has limited utility, since we have only implemented a single `QDialog` subclass (which we have named `Game`) and thus the abstract `Builder` class only has one concrete implementation `GameBuilder`. However, this design pattern provides a lot of potential utility in the later stages of the assignment and more generally for the broad task of game design, for the following reasons:
+
++ Initialisation of the `Game` class is quite complex and involves many parameters and configuration steps. In the event that we require more instances of this class (e.g. re-opening a *new* `Game` window after the user saves and quits), the construction process can be much simplified using the `GameBuilder`
++ In later iterations of the implementation, there might conceivably be other variants of the game present, in the form of new gameplay modes or feature skins over the existing implementations. If these require different `Config` objects or other parameters, new subclasses of `Builder` could be very helpful in instantiating these new `Game`-like objects cleanly.
++ In line with the general purpose of the Builder design pattern, it allows the possibility of implementing improved versions of the `Game` class without affecting the existing interface.  
+
 ## Extensions 
 
-I have included four small extensions to the assignment specification as follows:
+I have included **four small extensions** to the assignment specification as follows:
 
 ### Pause Button 
 
