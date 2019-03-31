@@ -1,4 +1,4 @@
-# INFO32200-assignment1
+# INFO32200-assignment-1
 
 ## Style guide
 
@@ -42,9 +42,9 @@ User can press P to bring up a pause screen, and press P again to resume the gam
 
 ### Soundtrack
 
-The game has background music which starts playing as soon as the game loads. This is implemented in the `Game` class, in particular through the `setSoundtrack`, `playSoundtrack` and `pauseSoundtrack` methods -- this extension integrates with the previous one, such that the soundtrack stops playing on the pause screen and resumes once the user exits the pause screen. 
+The game has background music which starts playing as soon as the game loads. This is implemented in the `Game` class, in particular through the `setSoundtrack`, `playSoundtrack` and `pauseSoundtrack` methods -- this extension integrates with the pause button extension, such that the soundtrack stops playing when the game is paused, and resumes once unpaused. 
 
-The soundtrack  is configurable by the user, with its path specified in the `resources/config.xml` file under the `<soundtrack>` tag, which must specify a `.wav` file in the `resources` directory. 
+The soundtrack  is configurable by the user, with its path specified in the `resources/config.xml` file under the `<soundtrack>` tag, which must specify a `.wav` file in the `resources` directory. This is implemented using Qt's `QSound` library. 
 
 ### Night Mode
 
