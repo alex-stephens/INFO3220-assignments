@@ -1,5 +1,5 @@
 <config>
-	<size>large</size>
+	<size>giant</size>
 	<position>150</position>
 	<velocity>3</velocity>
 	<background>background.png</background>
