@@ -42,6 +42,7 @@ void Sprite::render(QPainter &painter) {
 }
 
 void Sprite::update() {
+    // based on how long each frame is rendered for, choose which frame of the sprite to show
     frame = (frame + 1) % (frame_hold * num_frames);
     img_num = 1 + (frame / frame_hold);
 }

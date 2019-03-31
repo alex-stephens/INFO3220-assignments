@@ -26,7 +26,6 @@ Game::Game(Config config)
     this->resize(WINDOW_WIDTH, WINDOW_HEIGHT);
     backgroundOffset = 0;
 
-
     QTimer *timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(nextFrame()));
     timer->start(16);
@@ -46,6 +45,7 @@ void Game::pauseSoundtrack() {
 }
 
 void Game::keyPressEvent(QKeyEvent *event){
+    // Pause keypress event
     if (event->key() == Qt::Key_P){
         paused = !paused;
         if (paused) {
@@ -55,6 +55,8 @@ void Game::keyPressEvent(QKeyEvent *event){
             playSoundtrack();
         }
     }
+
+    // Night mode toggle keypress event
     else if(event->key() == Qt::Key_N){
         background.toggleNightMode();
     }
@@ -69,6 +71,7 @@ void Game::paintEvent(QPaintEvent *event) {
 
     QPainter painter(this);
 
+    // if the game is paused, render the pause screen instead of updating and rendering the main game screen
     if (paused){
         Pause pause("pause_img.png");
         pause.render(painter);
