@@ -30,10 +30,10 @@ SOURCES += \
     background.cpp \
     sprite.cpp \
     config.cpp \
-    graphics.cpp \
     pause.cpp \
     game.cpp \
-    gamebuilder.cpp
+    gamebuilder.cpp \
+    graphics.cpp
 
 HEADERS += \
     coordinate.h \
@@ -44,7 +44,8 @@ HEADERS += \
     graphics.h \
     pause.h \
     game.h \
-    gamebuilder.h
+    gamebuilder.h \
+    builder.h
 
 FORMS += \
         dialog.ui

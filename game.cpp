@@ -33,7 +33,7 @@ Game::Game(Config config)
 }
 
 void Game::setSoundtrack(QString s) {
-    soundtrack = new QSound("/Users/alex/Dropbox/University/2019 Semester 1/INFO3220/INFO3220-assignment1/resources/music.wav");
+    soundtrack = new QSound(RESOURCES_PATH + s);
     soundtrack->setLoops(1000000); // play until the heat death of the universe
 }
 

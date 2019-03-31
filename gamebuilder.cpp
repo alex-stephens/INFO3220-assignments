@@ -6,6 +6,8 @@ GameBuilder::GameBuilder(Config config)
     setConfig(config);
 }
 
+GameBuilder::~GameBuilder() {}
+
 void GameBuilder::setConfig(Config c) {
     config = c;
 
@@ -23,7 +25,3 @@ void GameBuilder::setSprite(QString filename, QString extension, int numImages) 
 Game * GameBuilder::buildGame() {
     return new Game(background, sprite);
 }
-
-
-
-//sprite(Coordinate(config.getPosition(), config.getSize()/2, WINDOW_HEIGHT), config.getSize(),"sprite_", ".gif", 3)

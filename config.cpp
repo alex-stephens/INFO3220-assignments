@@ -32,7 +32,8 @@ Config::Config(QString path) {
     QDomDocument dom;
 
     if (!isValidFile(path)){
-        throw "Invalid configuration file path";
+        printf ("Invalid configuration file path");
+        exit (EXIT_FAILURE);
     }
 
     QFile f(path);
@@ -75,7 +76,8 @@ Config::Config(QString path) {
         }
 
         else {
-            throw std::invalid_argument("Invalid configuration parameters");
+            // doesn't stop the program, but print a warning
+            printf("Invalid configuration parameter found in file");
         }
     }
 }

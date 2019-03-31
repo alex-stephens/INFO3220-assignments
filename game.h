@@ -1,5 +1,5 @@
-#ifndef DIALOG_H
-#define DIALOG_H
+#ifndef GAME_H
+#define GAME_H
 
 #include "background.h"
 #include "params.h"
@@ -102,4 +102,4 @@ private:
 
 
 
-#endif // DIALOG_H
+#endif // GAME_H

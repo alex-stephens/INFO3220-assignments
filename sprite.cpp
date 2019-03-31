@@ -31,16 +31,12 @@ Sprite::Sprite(Coordinate coordinate, unsigned int size, QString path_prefix, QS
 
 void Sprite::render(QPainter &painter) {
 
+    // update the stickman image
     update();
-//    coordinate.setYCoordinateToZero(height/2);
 
     QString path = RESOURCES_PATH + filename_prefix + QString::number(img_num) + extension;
     QPixmap stickman(path);
 
-//    painter.drawPixmap(QRect(coordinate.getQtRenderingXCoordinate()-width/2, coordinate.getQtRenderingYCoordinate()-height/2,
-//                             width, height), stickman);
-
-    qDebug() << coordinate.getQtRenderingYCoordinate();
     painter.drawPixmap(coordinate.getQtRenderingXCoordinate()-width/2, coordinate.getQtRenderingYCoordinate()-height/2,
                              width, height, stickman);
 }

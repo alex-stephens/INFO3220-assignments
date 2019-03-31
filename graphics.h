@@ -9,7 +9,7 @@ public:
     /**
      * @brief ~Graphics virtual destructor
      */
-    virtual ~Graphics() { }
+    virtual ~Graphics();
 
     /**
      * @brief render
