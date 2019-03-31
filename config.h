@@ -64,7 +64,13 @@ public:
 
 private:
 
+    /**
+     * @brief isValidFile checks that supplied path and file are valid
+     * @param path to config file
+     * @return true if the file is valid
+     */
     bool isValidFile(QString path);
+
     unsigned int size;
     int position;
     int velocity;

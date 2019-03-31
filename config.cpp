@@ -31,6 +31,7 @@ Config::Config(QString path) {
 
     QDomDocument dom;
 
+    // ERROR CHECK - ensure that provided file and path is valid
     if (!isValidFile(path)){
         printf ("Invalid configuration file path");
         exit (EXIT_FAILURE);
