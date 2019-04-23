@@ -68,6 +68,19 @@ void Config::setupConfig() {
                 Config::config()->setBackgroundNumber(element.toInt());
             }
 
+            else if (split_line.first() == "Stage2") {
+                if (element.toStdString() != "true" && element.toStdString() != "false") {
+                    std::cerr << "Stage2 must be either true (enabled) or false (disabled)" << std::endl;
+                    return;
+                }
+                else if (element.toStdString() == "true") {
+                    Config::config()->setStage2Enable(true);
+                }
+                else {
+                    Config::config()->setStage2Enable(false);
+                }
+            }
+
         }
 
         config_file.close();

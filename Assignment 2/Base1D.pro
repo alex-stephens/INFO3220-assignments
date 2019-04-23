@@ -34,7 +34,8 @@ SOURCES += \
     gamedialog.cpp \
     startdialog.cpp \
     gamefactory.cpp \
-    stage1game.cpp
+    stage1game.cpp \
+    stage2game.cpp
 
 HEADERS += \
     coordinate.h \
@@ -46,7 +47,9 @@ HEADERS += \
     startdialog.h \
     gamefactory.h \
     stage1gamefactory.h \
-    stage1game.h
+    stage1game.h \
+    stage2game.h \
+    stage2gamefactory.h
 
 FORMS += \
     pausedialog.ui \

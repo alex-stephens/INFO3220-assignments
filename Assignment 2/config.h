@@ -40,6 +40,11 @@ public:
     void setBackgroundNumber(int number) { background_number = number; }
     void setStickman(Stickman *new_stickman) { stickman = new_stickman; }
 
+    // Stage 2 getter functions
+
+    // Stage 2 setter functions
+    void setStage2Enable(bool val) { stage2_enable = val; }
+
 protected:
 
 private:
@@ -53,5 +58,8 @@ private:
     int world_height;
     int background_number;
     Stickman *stickman;
+
+    // stage 2 member variables
+    bool stage2_enable;
 };
 

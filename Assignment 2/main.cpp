@@ -5,6 +5,7 @@
 #include "config.h"
 #include "startdialog.h"
 #include "stage1gamefactory.h"
+#include "stage2gamefactory.h"
 
 //Allocating and initializing Config static data member. The pointer is being allocated - not the object itself
 Config *Config::config_instance = 0;
@@ -20,7 +21,7 @@ int main(int argc, char *argv[]) {
     sound.setLoops(-1);
     sound.play();
 
-    StartDialog start_dialog(new Stage1GameFactory());
+    StartDialog start_dialog(new Stage2GameFactory());
     start_dialog.setWindowTitle("Main Menu");
     start_dialog.show();
 
