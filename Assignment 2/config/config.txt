@@ -1,0 +1,4 @@
+Size:giant
+Position:500
+Velocity:10
+Background:1
