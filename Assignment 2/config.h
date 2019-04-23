@@ -10,6 +10,7 @@
 #include <string>
 
 #include "stickman.h"
+#include "stage2stickman.h"
 
 class Config {
 
@@ -41,6 +42,7 @@ public:
     void setStickman(Stickman *new_stickman) { stickman = new_stickman; }
 
     // Stage 2 getter functions
+    bool getStage2Enable() { return stage2_enable; }
 
     // Stage 2 setter functions
     void setStage2Enable(bool val) { stage2_enable = val; }

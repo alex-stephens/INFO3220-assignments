@@ -35,7 +35,8 @@ SOURCES += \
     startdialog.cpp \
     gamefactory.cpp \
     stage1game.cpp \
-    stage2game.cpp
+    stage2game.cpp \
+    stage2stickman.cpp
 
 HEADERS += \
     coordinate.h \
@@ -49,7 +50,8 @@ HEADERS += \
     stage1gamefactory.h \
     stage1game.h \
     stage2game.h \
-    stage2gamefactory.h
+    stage2gamefactory.h \
+    stage2stickman.h
 
 FORMS += \
     pausedialog.ui \

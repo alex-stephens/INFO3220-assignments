@@ -1,5 +1,5 @@
 Size:giant
 Position:500
-Velocity:10
+xVelocity:10
 Background:1
 Stage2:true

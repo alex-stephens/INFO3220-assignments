@@ -17,7 +17,7 @@ public:
     //Getter functions
     std::string getSize() { return size; }
     int getXPosition() { return position; }
-    double getVelocity() { return velocity; }
+    double getVelocity() { return xvelocity; }
     double getWidth() { return width; }
     double getHeight() { return height; }
     virtual QPixmap getPixmap(unsigned int frame);
@@ -25,7 +25,7 @@ public:
     //Change and set functions
     void changeSize(std::string new_size) { size = new_size; }
     void changeXPosition(int new_position) { position = new_position; }
-    void changeVelocity(int new_velocity) { velocity = new_velocity; }
+    void changeXVelocity(int new_velocity) { xvelocity = new_velocity; }
     virtual void setDimensions();
     virtual void updateStickman();
 
@@ -34,7 +34,7 @@ private:
 
     std::string size;
     int position;
-    double velocity;
+    double xvelocity;
     int width;
     int height;
 

@@ -32,10 +32,10 @@ void Stickman::setDimensions() {
 
 Stickman::Stickman(std::string size,
                    int position,
-                   double velocity)
+                   double xvelocity)
     : size(size),
       position(position),
-      velocity(velocity) {
+      xvelocity(xvelocity) {
 
     setDimensions();
 

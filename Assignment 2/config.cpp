@@ -12,7 +12,7 @@ void Config::setupConfig() {
 
     std::string config_size = "normal";
     int config_position = 0;
-    double config_velocity = 0.0;
+    double config_xvelocity = 0.0;
 
     QFile config_file(":config/config.txt");
 
@@ -49,12 +49,11 @@ void Config::setupConfig() {
                     return;
                 }
 
-
                 config_position = element.toInt();
             }
 
-            else if (split_line.first() == "Velocity") {
-                config_velocity = element.toDouble();
+            else if (split_line.first() == "xVelocity") {
+                config_xvelocity = element.toDouble();
             }
 
             else if (split_line.first() == "Background") {
@@ -89,6 +88,11 @@ void Config::setupConfig() {
     }
 
     //Create the stickman, given the parameters from the config file
-    Config::config()->setStickman(new Stickman(config_size, config_position, config_velocity));
+    if (getStage2Enable()){
+        Config::config()->setStickman(new Stickman(config_size, config_position, config_xvelocity));
+    }
+    else {
+        Config::config()->setStickman(new Stage2Stickman(config_size, config_position, config_xvelocity));
+    }
 }
 
