@@ -9,7 +9,7 @@ StartDialog::StartDialog(GameFactory* gameFactory, QWidget *parent) :
     gameFactory(gameFactory) {
 
     ui->setupUi(this);
-    this->setStyleSheet("background-color: #FFFFFF;"); //White
+//    this->setStyleSheet("background-color: #FFFFFF;"); //White
     this->setFixedSize(this->width(), this->height());
     setUpUI();
 
