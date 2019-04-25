@@ -23,7 +23,7 @@ public:
     virtual QPixmap getPixmap(unsigned int frame);
 
     //Change and set functions
-    virtual void changeSize(std::string new_size) { size = new_size; }
+    virtual void setSize(std::string new_size) { size = new_size; }
     virtual void setXPosition(int new_position) { xposition = new_position; }
     virtual void setXVelocity(int new_velocity) { xvelocity = new_velocity; }
     virtual void setDimensions();

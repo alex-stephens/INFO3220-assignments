@@ -24,7 +24,7 @@ public:
     double getYVelocity() override { return stickman->getYVelocity(); }
 
     //Change and set functions
-    void changeSize(std::string new_size) override { stickman->changeSize(new_size); }
+    void setSize(std::string new_size) override { stickman->setSize(new_size); }
     void setXPosition(int new_position) override { stickman->setXPosition(new_position); }
     void setXVelocity(int new_velocity) override { stickman->setXVelocity(new_velocity); }
     virtual void setDimensions() override { stickman->setDimensions(); }
@@ -33,8 +33,6 @@ public:
     void setYPosition(int new_position) override { stickman->setYPosition(new_position); }
     void setYVelocity(int new_velocity) override { stickman->setYVelocity(new_velocity); }
     void setPosition(int x, int y) override { stickman->setPosition(x,y); }
-
-
 
     virtual void update() override {
         stickman->update(); // update by delegation

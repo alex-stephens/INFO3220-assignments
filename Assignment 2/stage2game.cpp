@@ -6,13 +6,31 @@ Stage2Game::Stage2Game(QWidget *parent) :
     stickman_frame(1),
     counter(0) {
 
-
+    background.setVelocity(Config::config()->getBackgroundVelocity());
     this->setFixedSize(Config::config()->getWorldWidth(), Config::config()->getWorldHeight());
 
     if (Config::config()->getBackgroundNumber() == 2) {
         this->setStyleSheet("background-color: #002855;"); //Dark Blue
     } else {
         this->setStyleSheet("background-color: #14ACF6;"); //Light Blue
+    }
+
+    // make obstacles
+    int width = Config::config()->getObstacleWidth();
+    int height = Config::config()->getObstacleHeight();
+    int spacing = Config::config()->getObstacleSpacing();
+    std::vector<int> int_obstacles = Config::config()->getObstacles();
+
+    std::cout << "total number of stables: " << int_obstacles.size() << std::endl;
+
+    int repeat_span = (width + spacing) * int_obstacles.size();
+    int obstacle_x = 1000; // starting position for first obstacle
+
+    for (int o : int_obstacles) {
+        std::cout << "o : " << o << std::endl;
+        Coordinate c(obstacle_x, Config::config()->getWorldHeight() - o, Config::config()->getWorldWidth(), Config::config()->getWorldHeight());
+        obstacles.push_back(Obstacle(c, width, height, repeat_span, Config::config()->getBackgroundVelocity()));
+        obstacle_x += spacing + width;
     }
 
     //Initially have pause as false;
@@ -33,11 +51,13 @@ void Stage2Game::paintEvent(QPaintEvent *event) {
 
     QPainter painter(this);
 
+    std::cout << "obstacles: " << obstacles.size() << std::endl;
+
     background.render(painter, paused);
 //    std::cout << Config::config()->getObstacles().size()  << std::endl;
 
-    for (int i = 0; i < Config::config()->getObstacles().size(); i++) {
-        Config::config()->getObstacles().at(i).render(painter, paused);
+    for (int i = 0; i < obstacles.size(); i++) {
+        obstacles.at(i).render(painter, paused);
     }
 
     //Once the frame is the last, reset

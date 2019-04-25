@@ -12,7 +12,6 @@ void Config::setupConfig() {
 
     std::string config_size = "normal";
     int config_position = 0;
-    double config_xvelocity = 0.0;
 
     QFile config_file(":config/config.txt");
 
@@ -53,7 +52,7 @@ void Config::setupConfig() {
             }
 
             else if (split_line.first() == "xVelocity") {
-                config_xvelocity = element.toDouble();
+                background_velocity = element.toDouble();
             }
 
             else if (split_line.first() == "Background") {
@@ -94,16 +93,12 @@ void Config::setupConfig() {
                 }
 
                 QStringList split_line = line.split(":", QString::SkipEmptyParts);
-                QStringList obstacles_string = split_line.at(1).split(",", QString::SkipEmptyParts);
+                QStringList obstacles_strings = split_line.at(1).split(",", QString::SkipEmptyParts);
 
-                int obstacle_x = 500; // starting position for first obstacle
-                int repeat_span = (obstacle_width + obstacle_spacing) * obstacles_string.size();
-
-                for (QString o : obstacles_string) {
-                    Coordinate c(obstacle_x, world_height - o.toInt(), world_width, world_height);
-                    obstacles.push_back(Obstacle(c, obstacle_width, obstacle_height, repeat_span));
-                    obstacle_x += obstacle_spacing + obstacle_width;
+                for (QString s : obstacles_strings) {
+                    obstacles.push_back(s.toInt());
                 }
+                std::cout << "number of obstacles: " << obstacles.size() << std::endl;
             }
 
         }
@@ -114,16 +109,14 @@ void Config::setupConfig() {
     }
 
     //Create the stickman, given the parameters from the config file
-    std::cout << "yeeted" << std::endl;
-    Config::config()->setStickman(new MotionDecorator(new Stage2Stickman(config_size, config_position, config_xvelocity)));
+    Config::config()->setStickman(new MotionDecorator(new Stage2Stickman(config_size, config_position, background_velocity)));
 //    Config::config()->setStickman(new Stage2Stickman(config_size, config_position, config_xvelocity));
-    std::cout << "creating stage 1 stickman" << std::endl;
-    std::cout << "stickman X position: " << Config::config()->getStickman()->getXPosition() << std::endl;
+//    std::cout << "stickman X position: " << Config::config()->getStickman()->getXPosition() << std::endl;
 
     // check what obstacles were found
-    std::cout << "OBSTACLES:" << std::endl;
-    for (Obstacle i : obstacles) {
-        std::cout << i.getCoordinate().getXCoordinate() << ", " << i.getCoordinate().getYCoordinate() << std::endl;
-    }
+//    std::cout << "OBSTACLES:" << std::endl;
+//    for (Obstacle i : obstacles) {
+//        std::cout << i.getCoordinate().getXCoordinate() << ", " << i.getCoordinate().getYCoordinate() << std::endl;
+//    }
 }
 

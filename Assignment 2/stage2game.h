@@ -9,6 +9,7 @@
 #include <QDesktopWidget>
 #include <QApplication>
 #include <iostream>
+#include <vector>
 
 #include "config.h"
 #include "coordinate.h"
@@ -34,6 +35,7 @@ protected:
 private:
     QTimer *timer;
     Background background;
+    std::vector<Obstacle> obstacles;
     int stickman_frame;
     int counter;
 };

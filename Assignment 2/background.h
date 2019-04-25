@@ -24,6 +24,10 @@ public:
     QPixmap getFirst() { return first; }
     QPixmap getSecond() { return second; }
     QPixmap getThird() { return third; }
+    int getVelocity() { return velocity; }
+
+    //Setter functions
+    void setVelocity(int new_velocity) { velocity = new_velocity; }
 
 private:
     Coordinate main_coordinate;
@@ -35,6 +39,8 @@ private:
     QPixmap first;
     QPixmap second;
     QPixmap third;
+
+    int velocity = 0;
 };
 
 

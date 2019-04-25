@@ -4,8 +4,7 @@ Stage1Game::Stage1Game(QWidget *parent) :
     GameDialog(parent),
     background(Background(Coordinate(0, this->height(), this->height(), this->width()))),
     stickman_frame(1),
-    counter(0) {
-
+    counter(0) {    
 
     this->setFixedSize(Config::config()->getWorldWidth(), Config::config()->getWorldHeight());
 

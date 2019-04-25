@@ -37,6 +37,7 @@ public:
     int getWorldWidth() { return world_width; }
     int getWorldHeight() { return world_height; }
     int getBackgroundNumber() { return background_number; }
+    int getBackgroundVelocity() { return background_velocity; }
 
     //Setter functions
     void setWorldWidth(int width) { world_width = width; }
@@ -46,7 +47,10 @@ public:
 
     // Stage 2 getter functions
     bool getStage2Enable() { return stage2_enable; }
-    std::vector<Obstacle>& getObstacles() { return obstacles; }
+    int getObstacleWidth() { return obstacle_width; }
+    int getObstacleHeight() { return obstacle_height; }
+    int getObstacleSpacing() { return obstacle_spacing; }
+    std::vector<int> getObstacles() { return obstacles; }
 
     // Stage 2 setter functions
     void setStage2Enable(bool val) { stage2_enable = val; }
@@ -63,6 +67,7 @@ private:
     int world_width;
     int world_height;
     int background_number;
+    int background_velocity;
     Stage2Stickman *stickman;
 
     // stage 2 member variables
@@ -70,6 +75,6 @@ private:
     int obstacle_height;
     int obstacle_width;
     int obstacle_spacing;
-    std::vector<Obstacle> obstacles;
+    std::vector<int> obstacles;
 };
 

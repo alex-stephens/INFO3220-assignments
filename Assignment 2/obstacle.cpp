@@ -1,10 +1,11 @@
 #include "obstacle.h"
 
-Obstacle::Obstacle(Coordinate coordinate, int height, int width, int repeat_span)
+Obstacle::Obstacle(Coordinate coordinate, int height, int width, int repeat_span, int speed)
     : coordinate(coordinate),
       height(height),
       width(width),
-      repeat_span(repeat_span) { }
+      repeat_span(repeat_span),
+      speed(speed) { }
 
 void Obstacle::render(QPainter &painter, bool paused) {
     QPen pen;
@@ -18,7 +19,7 @@ void Obstacle::render(QPainter &painter, bool paused) {
 
     //If it isn't in pause, then adjust the position of all the components.
     if (!paused) {
-        coordinate.changeInXCoordinate(-10);
+        coordinate.changeInXCoordinate(-Config::config()->getStickman()->getXVelocity());
 
         // if it's off the screen, move it
         if (coordinate.getXCoordinate() < -width) {
