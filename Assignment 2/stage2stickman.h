@@ -1,5 +1,4 @@
-#ifndef STAGE2STICKMAN_H
-#define STAGE2STICKMAN_H
+#pragma once
 
 #include "stickman.h"
 
@@ -10,9 +9,21 @@ public:
     using Stickman::Stickman;
     ~Stage2Stickman() = default;
 
-signals:
+    // Getters
+    int getYPosition() { return yposition; }
+    double getYVelocity() { return yvelocity; }
 
-public slots:
+    // Setters
+    void changeYPosition(int new_position) { yposition = new_position; }
+    void changeYVelocity(int new_velocity) { yvelocity = new_velocity; }
+    void changePosition(int x, int y) { changeXPosition(x); changeYPosition(y); }
+
+    void jump();
+    virtual void update(void) override;
+
+
+private:
+    int yposition;
+    double yvelocity;
+    int jumpctr = 0; // used to implement double jump
 };
-
-#endif // STAGE2STICKMAN_H

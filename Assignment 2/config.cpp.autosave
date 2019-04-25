@@ -95,10 +95,10 @@ void Config::setupConfig() {
                 for (QString o : obstacles_string) {
                     obstacles.push_back(o.toInt());
                 }
+                
                 for (int i : obstacles) {
                     std::cout << i << std::endl;
                 }
-                std::cout << obstacles_string.at(2).toInt() << std::endl;
             }
 
         }

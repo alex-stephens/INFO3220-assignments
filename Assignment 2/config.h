@@ -8,6 +8,7 @@
 #include <QList>
 #include <iostream>
 #include <string>
+#include <vector>
 
 #include "stickman.h"
 #include "stage2stickman.h"
@@ -30,7 +31,7 @@ public:
     virtual void setupConfig();
 
     //Getter functions
-    Stickman* getStickman() { return stickman; }
+    Stage2Stickman* getStickman() { return stickman; }
     int getWorldWidth() { return world_width; }
     int getWorldHeight() { return world_height; }
     int getBackgroundNumber() { return background_number; }
@@ -39,7 +40,7 @@ public:
     void setWorldWidth(int width) { world_width = width; }
     void setWorldHeight(int height) { world_height = height; }
     void setBackgroundNumber(int number) { background_number = number; }
-    void setStickman(Stickman *new_stickman) { stickman = new_stickman; }
+    void setStickman(Stage2Stickman *new_stickman) { stickman = new_stickman; }
 
     // Stage 2 getter functions
     bool getStage2Enable() { return stage2_enable; }
@@ -59,9 +60,12 @@ private:
     int world_width;
     int world_height;
     int background_number;
-    Stickman *stickman;
+    Stage2Stickman *stickman;
 
     // stage 2 member variables
     bool stage2_enable;
+    int obstacle_height;
+    int obstacle_width;
+    int obstacle_spacing;
 };
 

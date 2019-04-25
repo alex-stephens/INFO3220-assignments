@@ -115,7 +115,7 @@ void Background::render(QPainter &painter, bool paused) {
         } else {
             second_coordinate.changeInXCoordinate(-0.3);
         }
-        third_coordinate.changeInXCoordinate(-Config::config()->getStickman()->getVelocity());
+        third_coordinate.changeInXCoordinate(-Config::config()->getStickman()->getXVelocity());
     }
 
 

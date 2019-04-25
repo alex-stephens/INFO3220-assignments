@@ -76,22 +76,22 @@ void PauseDialog::on_position_slider_actionTriggered(int action) {
 
 void PauseDialog::on_tiny_radio_clicked() {
     Config::config()->getStickman()->changeSize("tiny");
-    Config::config()->getStickman()->updateStickman();
+    Config::config()->getStickman()->resizeStickman();
 }
 
 
 void PauseDialog::on_normal_radio_clicked() {
     Config::config()->getStickman()->changeSize("normal");
-    Config::config()->getStickman()->updateStickman();
+    Config::config()->getStickman()->resizeStickman();
 }
 
 void PauseDialog::on_large_radio_clicked() {
     Config::config()->getStickman()->changeSize("large");
-    Config::config()->getStickman()->updateStickman();
+    Config::config()->getStickman()->resizeStickman();
 }
 
 void PauseDialog::on_giant_radio_clicked() {
     Config::config()->getStickman()->changeSize("giant");
-    Config::config()->getStickman()->updateStickman();
+    Config::config()->getStickman()->resizeStickman();
 }
 

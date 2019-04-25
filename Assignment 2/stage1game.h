@@ -23,8 +23,8 @@ public:
     ~Stage1Game();
 
 protected:
-    void paintEvent(QPaintEvent *event);
-    void keyPressEvent(QKeyEvent *event);
+    virtual void paintEvent(QPaintEvent *event);
+    virtual void keyPressEvent(QKeyEvent *event);
 
     //Functions to get paused state but also set the pause state
     void pause() { paused = true; }

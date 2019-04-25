@@ -9,31 +9,33 @@ class Stickman {
 public:
 
     Stickman(std::string size = "small",
-            int position = 0,
+            int xposition = 0,
             double starting_velocity = 0.0);
 
     ~Stickman();
 
     //Getter functions
     std::string getSize() { return size; }
-    int getXPosition() { return position; }
-    double getVelocity() { return xvelocity; }
+    int getXPosition() { return xposition; }
+    double getXVelocity() { return xvelocity; }
     double getWidth() { return width; }
     double getHeight() { return height; }
     virtual QPixmap getPixmap(unsigned int frame);
 
     //Change and set functions
     void changeSize(std::string new_size) { size = new_size; }
-    void changeXPosition(int new_position) { position = new_position; }
+    void changeXPosition(int new_position) { xposition = new_position; }
     void changeXVelocity(int new_velocity) { xvelocity = new_velocity; }
     virtual void setDimensions();
-    virtual void updateStickman();
+    virtual void resizeStickman();
 
+    // addition for stage 2 extensibility, does nothing here in the base class
+    virtual void update(void);
 
 private:
 
     std::string size;
-    int position;
+    int xposition;
     double xvelocity;
     int width;
     int height;

@@ -36,7 +36,9 @@ SOURCES += \
     gamefactory.cpp \
     stage1game.cpp \
     stage2game.cpp \
-    stage2stickman.cpp
+    stage2stickman.cpp \
+    stickmandecorator.cpp \
+    motiondecorator.cpp
 
 HEADERS += \
     coordinate.h \
@@ -51,7 +53,9 @@ HEADERS += \
     stage1game.h \
     stage2game.h \
     stage2gamefactory.h \
-    stage2stickman.h
+    stage2stickman.h \
+    stickmandecorator.h \
+    motiondecorator.h
 
 FORMS += \
     pausedialog.ui \

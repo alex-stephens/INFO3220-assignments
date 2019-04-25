@@ -40,6 +40,9 @@ void Stage1Game::paintEvent(QPaintEvent *event) {
         stickman_frame = 1;
     }
 
+    // stickman dynamics update
+    Config::config()->getStickman()->update();
+
     //Get the Pixmap of the respective frame
     QPixmap stickman = Config::config()->getStickman()->getPixmap(stickman_frame);
 

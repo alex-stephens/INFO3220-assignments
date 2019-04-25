@@ -31,17 +31,17 @@ void Stickman::setDimensions() {
 }
 
 Stickman::Stickman(std::string size,
-                   int position,
+                   int xposition,
                    double xvelocity)
     : size(size),
-      position(position),
+      xposition(xposition),
       xvelocity(xvelocity) {
 
     setDimensions();
 
 }
 
-void Stickman::updateStickman() {
+void Stickman::resizeStickman() {
     setDimensions();
 }
 
@@ -52,4 +52,7 @@ QPixmap Stickman::getPixmap(unsigned int frame) {
     return pix;
 }
 
-
+// perform dynamics update: does nothing in the base class
+void Stickman::update() {
+    return;
+}
