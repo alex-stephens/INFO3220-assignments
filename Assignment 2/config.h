@@ -12,6 +12,7 @@
 
 #include "stickman.h"
 #include "stage2stickman.h"
+#include "obstacle.h"
 
 class Config {
 
@@ -44,6 +45,7 @@ public:
 
     // Stage 2 getter functions
     bool getStage2Enable() { return stage2_enable; }
+    std::vector<Obstacle>& getObstacles() { return obstacles; }
 
     // Stage 2 setter functions
     void setStage2Enable(bool val) { stage2_enable = val; }
@@ -67,5 +69,6 @@ private:
     int obstacle_height;
     int obstacle_width;
     int obstacle_spacing;
+    std::vector<Obstacle> obstacles;
 };
 

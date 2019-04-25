@@ -34,6 +34,12 @@ void Stage2Game::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
 
     background.render(painter, paused);
+    std::cout << Config::config()->getObstacles().size()  << std::endl;
+
+    for (int i = 0; i < Config::config()->getObstacles().size(); i++) {
+        Config::config()->getObstacles().at(i).render(painter, paused);
+        std::cout << "rendering obstacle" << std::endl;
+    }
 
     //Once the frame is the last, reset
     if (stickman_frame > 9) {

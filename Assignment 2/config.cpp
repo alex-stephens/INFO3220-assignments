@@ -89,16 +89,21 @@ void Config::setupConfig() {
                 obstacle_spacing = element.toInt();
             }
             else if (split_line.first() == "Obstacles") {
+                if (obstacle_height == 0 || obstacle_width == 0 || obstacle_spacing == 0) {
+                    std::cerr << "Object parameters (height, width, spacing) must be provided before object locations" << std::endl;
+                }
+
                 QStringList split_line = line.split(":", QString::SkipEmptyParts);
                 QStringList obstacles_string = split_line.at(1).split(",", QString::SkipEmptyParts);
-                std::vector<int> obstacles;
+
+                int obstacle_x = 500; // starting position for first obstacle
+                int repeat_span = (obstacle_width + obstacle_spacing) * obstacles_string.size();
+
                 for (QString o : obstacles_string) {
-                    obstacles.push_back(o.toInt());
+                    Coordinate c(obstacle_x, world_height - o.toInt(), world_width, world_height);
+                    obstacles.push_back(Obstacle(c, obstacle_width, obstacle_height, repeat_span));
+                    obstacle_x += obstacle_spacing + obstacle_width;
                 }
-                for (int i : obstacles) {
-                    std::cout << i << std::endl;
-                }
-                std::cout << obstacles_string.at(2).toInt() << std::endl;
             }
 
         }
@@ -111,5 +116,11 @@ void Config::setupConfig() {
     //Create the stickman, given the parameters from the config file
     Config::config()->setStickman(new Stage2Stickman(config_size, config_position, config_xvelocity));
     std::cout << "creating stage 1 stickman" << std::endl;
+
+    // check what obstacles were found
+    std::cout << "OBSTACLES:" << std::endl;
+    for (Obstacle i : obstacles) {
+        std::cout << i.getCoordinate().getXCoordinate() << ", " << i.getCoordinate().getXCoordinate() << std::endl;
+    }
 }
 
