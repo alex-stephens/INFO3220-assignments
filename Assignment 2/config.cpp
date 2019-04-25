@@ -114,13 +114,16 @@ void Config::setupConfig() {
     }
 
     //Create the stickman, given the parameters from the config file
-    Config::config()->setStickman(new Stage2Stickman(config_size, config_position, config_xvelocity));
+    std::cout << "yeeted" << std::endl;
+    Config::config()->setStickman(new MotionDecorator(new Stage2Stickman(config_size, config_position, config_xvelocity)));
+//    Config::config()->setStickman(new Stage2Stickman(config_size, config_position, config_xvelocity));
     std::cout << "creating stage 1 stickman" << std::endl;
+    std::cout << "stickman X position: " << Config::config()->getStickman()->getXPosition() << std::endl;
 
     // check what obstacles were found
     std::cout << "OBSTACLES:" << std::endl;
     for (Obstacle i : obstacles) {
-        std::cout << i.getCoordinate().getXCoordinate() << ", " << i.getCoordinate().getXCoordinate() << std::endl;
+        std::cout << i.getCoordinate().getXCoordinate() << ", " << i.getCoordinate().getYCoordinate() << std::endl;
     }
 }
 

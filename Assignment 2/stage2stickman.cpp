@@ -1,5 +1,16 @@
 #include "stage2stickman.h"
 
+//Stage2Stickman::Stage2Stickman(std::string size,
+//                   int xposition,
+//                   double xvelocity)
+//{
+//    changeSize(size);
+//    changeXPosition(xposition);
+//    changeXVelocity(xvelocity);
+//    setDimensions();
+//}
+
+
 void Stage2Stickman::update() {
     yvelocity -= 2;
     yposition += yvelocity;

@@ -12,20 +12,20 @@ public:
             int xposition = 0,
             double starting_velocity = 0.0);
 
-    ~Stickman();
+    virtual ~Stickman();
 
     //Getter functions
-    std::string getSize() { return size; }
-    int getXPosition() { return xposition; }
-    double getXVelocity() { return xvelocity; }
-    double getWidth() { return width; }
-    double getHeight() { return height; }
+    virtual std::string getSize() { return size; }
+    virtual int getXPosition() { return xposition; }
+    virtual double getXVelocity() { return xvelocity; }
+    virtual double getWidth() { return width; }
+    virtual double getHeight() { return height; }
     virtual QPixmap getPixmap(unsigned int frame);
 
     //Change and set functions
-    void changeSize(std::string new_size) { size = new_size; }
-    void changeXPosition(int new_position) { xposition = new_position; }
-    void changeXVelocity(int new_velocity) { xvelocity = new_velocity; }
+    virtual void changeSize(std::string new_size) { size = new_size; }
+    virtual void setXPosition(int new_position) { xposition = new_position; }
+    virtual void setXVelocity(int new_velocity) { xvelocity = new_velocity; }
     virtual void setDimensions();
     virtual void resizeStickman();
 

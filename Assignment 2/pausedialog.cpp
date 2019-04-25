@@ -68,7 +68,7 @@ void PauseDialog::on_buttonBox_clicked(QAbstractButton *button) {
 
 //Real-time update of the x position of the stickman
 void PauseDialog::on_position_slider_actionTriggered(int action) {
-    Config::config()->getStickman()->changeXPosition(ui->position_slider->value());
+    Config::config()->getStickman()->setXPosition(ui->position_slider->value());
 }
 
 

@@ -13,6 +13,7 @@
 #include "stickman.h"
 #include "stage2stickman.h"
 #include "obstacle.h"
+#include "motiondecorator.h"
 
 class Config {
 
