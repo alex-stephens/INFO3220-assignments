@@ -2,8 +2,9 @@
 
 void MotionDecorator::update() {
 //  std::cout << "xVelocity : " << this->getXVelocity() << std::endl;
+    if (Config::config()->getStickman()->getXPosition() >= 1000) {
+        Config::config()->getStickman()->setXVelocity(0);
+    }
 //    Config::config()->getStickman()->setXVelocity(0);
     StickmanDecorator::update(); // update by delegation
-
-//  std::cout << "dynamics by delegation " << stickman->getXVelocity() << std::endl;
 }

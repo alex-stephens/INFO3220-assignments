@@ -39,7 +39,8 @@ SOURCES += \
     stage2stickman.cpp \
     stickmandecorator.cpp \
     motiondecorator.cpp \
-    obstacle.cpp
+    obstacle.cpp \
+    collisiondetector.cpp
 
 HEADERS += \
     coordinate.h \
@@ -57,7 +58,8 @@ HEADERS += \
     stage2stickman.h \
     stickmandecorator.h \
     motiondecorator.h \
-    obstacle.h
+    obstacle.h \
+    collisiondetector.h
 
 FORMS += \
     pausedialog.ui \

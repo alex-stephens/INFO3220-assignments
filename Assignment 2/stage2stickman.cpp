@@ -12,9 +12,11 @@
 
 
 void Stage2Stickman::update() {
-    yvelocity -= 2;
-    yposition += yvelocity;
 
+    yposition += yvelocity;
+    yvelocity -= 2; // gravity
+
+    // hitting the ground
     if (yposition <= 0) {
         yposition = 0;
         yvelocity = 0;
@@ -26,6 +28,6 @@ void Stage2Stickman::jump() {
     if (jumpctr < 2) {
         yvelocity = 30;
         std::cout << "stickman jumped" << std::endl;
-        jumpctr++;
+        ++jumpctr;
     }
 }

@@ -9,6 +9,7 @@
 class Obstacle
 {
 public:
+    Obstacle();
     Obstacle(Coordinate coordinate, int height, int width, int repeat_span, int speed);
 
     // getters

@@ -98,7 +98,6 @@ void Config::setupConfig() {
                 for (QString s : obstacles_strings) {
                     obstacles.push_back(s.toInt());
                 }
-                std::cout << "number of obstacles: " << obstacles.size() << std::endl;
             }
 
         }
@@ -109,9 +108,9 @@ void Config::setupConfig() {
     }
 
     //Create the stickman, given the parameters from the config file
-    Config::config()->setStickman(new MotionDecorator(new Stage2Stickman(config_size, config_position, background_velocity)));
-//    Config::config()->setStickman(new Stage2Stickman(config_size, config_position, config_xvelocity));
-//    std::cout << "stickman X position: " << Config::config()->getStickman()->getXPosition() << std::endl;
+//    Config::config()->setStickman(new MotionDecorator(new Stage2Stickman(config_size, config_position, background_velocity)));
+    Config::config()->setStickman(new Stage2Stickman(config_size, config_position, background_velocity));
+
 
     // check what obstacles were found
 //    std::cout << "OBSTACLES:" << std::endl;

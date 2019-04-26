@@ -4,6 +4,7 @@
 #include <string>
 #include <QPixmap>
 
+
 class Stickman {
 
 public:
@@ -30,7 +31,7 @@ public:
     virtual void resizeStickman();
 
     // addition for stage 2 extensibility, does nothing here in the base class
-    virtual void update(void);
+    virtual void update();
 
 private:
 

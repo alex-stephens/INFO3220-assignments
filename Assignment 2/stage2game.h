@@ -16,6 +16,7 @@
 #include "background.h"
 #include "pausedialog.h"
 #include "startdialog.h"
+#include "collisiondetector.h"
 
 
 class Stage2Game : public GameDialog {

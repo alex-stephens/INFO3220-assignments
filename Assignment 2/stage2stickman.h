@@ -19,6 +19,7 @@ public:
     // Setters
     virtual void setYPosition(int new_position) { yposition = new_position; }
     virtual void setYVelocity(int new_velocity) { yvelocity = new_velocity; }
+    virtual void setXVelocityToDefault() { this->setXVelocity(default_velocity); }
     virtual void setPosition(int x, int y) { setXPosition(x); setYPosition(y); }
 
     virtual void jump();
@@ -28,5 +29,6 @@ public:
 private:
     double yvelocity = 0;
     int yposition = 0 ;
+    int default_velocity = this->getXVelocity();
     int jumpctr = 0; // used to implement double jump
 };

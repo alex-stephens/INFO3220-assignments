@@ -21,15 +21,12 @@ Stage2Game::Stage2Game(QWidget *parent) :
     int spacing = Config::config()->getObstacleSpacing();
     std::vector<int> int_obstacles = Config::config()->getObstacles();
 
-    std::cout << "total number of stables: " << int_obstacles.size() << std::endl;
-
     int repeat_span = (width + spacing) * int_obstacles.size();
     int obstacle_x = 1000; // starting position for first obstacle
 
     for (int o : int_obstacles) {
-        std::cout << "o : " << o << std::endl;
-        Coordinate c(obstacle_x, Config::config()->getWorldHeight() - o, Config::config()->getWorldWidth(), Config::config()->getWorldHeight());
-        obstacles.push_back(Obstacle(c, width, height, repeat_span, Config::config()->getBackgroundVelocity()));
+        Coordinate c(obstacle_x, o, Config::config()->getWorldHeight(), Config::config()->getWorldWidth());
+        obstacles.push_back(Obstacle(c, height, width, repeat_span, Config::config()->getBackgroundVelocity()));
         obstacle_x += spacing + width;
     }
 
@@ -51,22 +48,28 @@ void Stage2Game::paintEvent(QPaintEvent *event) {
 
     QPainter painter(this);
 
-    std::cout << "obstacles: " << obstacles.size() << std::endl;
-
     background.render(painter, paused);
-//    std::cout << Config::config()->getObstacles().size()  << std::endl;
 
     for (int i = 0; i < obstacles.size(); i++) {
         obstacles.at(i).render(painter, paused);
     }
 
+    // update the obstacles in the collision detector and check for upcoming collisions
+    CollisionDetector detector(obstacles);
+
+    detector.checkHorizontalCollisions();
+
+    // stickman dynamics update
+    Config::config()->getStickman()->update();
+
+    //    detector.setObstacles(obstacles);
+    //    detector.checkVerticalCollisions();
+
+
     //Once the frame is the last, reset
     if (stickman_frame > 9) {
         stickman_frame = 1;
     }
-
-    // stickman dynamics update
-    Config::config()->getStickman()->update();
 
     //Get the Pixmap of the respective frame
     QPixmap stickman = Config::config()->getStickman()->getPixmap(stickman_frame);
@@ -93,8 +96,6 @@ void Stage2Game::paintEvent(QPaintEvent *event) {
                        Config::config()->getStickman()->getWidth(),
                        Config::config()->getStickman()->getHeight(),
                        stickman);
-
-    std::cout << "stickman position: (" << stickman_coordinate.getXCoordinate() << ", " << stickman_coordinate.getYCoordinate() << ")" << std::endl;
 }
 
 void Stage2Game::keyPressEvent(QKeyEvent *event) {
