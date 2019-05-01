@@ -8,7 +8,7 @@ CollisionDetector::CollisionDetector(std::vector<Obstacle>& obstacles)
 //}
 
 
-void CollisionDetector::checkHorizontalCollisions() {
+void CollisionDetector::checkCollisions() {
     Stage2Stickman * stickman = Config::config()->getStickman();
     int x1, x2, y1, y2;
     x1 = stickman->getXPosition() - stickman->getWidth()/2; x2 = x1 + stickman->getWidth();
@@ -48,11 +48,11 @@ void CollisionDetector::checkHorizontalCollisions() {
         y3 = o.getCoordinate().getYCoordinate(); y4 = y3 - o.getHeight();
         std::cout << "obstacle: " << x3 << ", " << x4<< ", "  << y3<< ", "  << y4 << std::endl;
 
-        if ((x1+xvel < x4 != x2 < x3) && (y1 < y4 != y2 < y3)) {
+        if ((x1 < x4 != x2+xvel < x3) && (y1 < y4 != y2 < y3)) {
             horizontal_collision = true;
             upward_collision = false;
             downward_collision = false;
-            collisionX = x4;
+            collisionX = x3;
             std::cout << "horizontal collision" << std::endl;
             break;
         }

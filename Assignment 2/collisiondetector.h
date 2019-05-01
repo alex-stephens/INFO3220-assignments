@@ -14,7 +14,7 @@ public:
 //    CollisionDetector();
     CollisionDetector(std::vector<Obstacle>& obstacles);
 
-    void checkHorizontalCollisions();
+    void checkCollisions();
     void checkVerticalCollisions();
 
     // getters and setters

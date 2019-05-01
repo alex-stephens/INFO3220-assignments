@@ -85,6 +85,10 @@ void Config::setupConfig() {
                 obstacle_width = element.toInt();
             }
             else if (split_line.first() == "ObstacleSpacing") {
+                if (element.toInt() < 0) {
+                    std::cerr << "Obstacles must be non-overlapping in the horizontal direction" << std::endl;
+                    return;
+                }
                 obstacle_spacing = element.toInt();
             }
             else if (split_line.first() == "Obstacles") {

@@ -57,7 +57,7 @@ void Stage2Game::paintEvent(QPaintEvent *event) {
     // update the obstacles in the collision detector and check for upcoming collisions
     CollisionDetector detector(obstacles);
 
-    detector.checkHorizontalCollisions();
+    detector.checkCollisions();
 
     // stickman dynamics update
     Config::config()->getStickman()->update();
