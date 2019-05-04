@@ -1,6 +1,6 @@
 # Flying Stickman Game
 
-# STYLE GUIDE
+# Style Guide
 
 The style for this project is based on the Google [C++ style guide](https://google.github.io/styleguide/cppguide.html). There are some variations:
 
@@ -27,7 +27,7 @@ The style for this project is based on the Google [C++ style guide](https://goog
 
   ** Names to Avoid: single character names except for counters or iterators **
 
-# EXTENSIONS
+# Extensions (Stage 1)
 
   1. Main Menu screen where the user can select which background they would like to play the game in
   2. Parallax background to establish a scrolling background (stickman is stationary everything else is moving)
@@ -38,8 +38,19 @@ The style for this project is based on the Google [C++ style guide](https://goog
   4. Background Music that has a infinite loop
   5. Animation of stickman, stickman is running.
   
-# DESIGN PATTERNS
+# Design Patterns (Stage 1)
 
 ## Factory method
 
 The game dialog is created by a factory to allow for easy extension. The separation of object construction from object use allows new game dialogs to be created without tight coupling of the start dialog and the game dialog.
+
+# Extensions (Stage 2)
+
+  1. Double jump - easily configurable as "multi-jump" (e.g. triple jump) as well.
+  2. Sound effect on jump.
+
+# Design Patterns (Stage 2) 
+
+## Decorator
+
+Decorators are used to dynamically extend functionality of various objects. For example, for the stickman object (`Stage2Stickman`) we provide a decorator (abstract class `StickmanDecorator`) implemented in `MotionDecorator` to add the jump sound effect. 
