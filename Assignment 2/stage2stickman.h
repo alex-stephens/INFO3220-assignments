@@ -15,6 +15,7 @@ public:
     // Getters
     virtual int getYPosition() { return yposition; }
     virtual double getYVelocity() { return yvelocity; }
+    virtual int getDefaultVelocity() { return default_velocity; }
 
     // Setters
     virtual void setYPosition(int new_position) { yposition = new_position; }
@@ -22,9 +23,10 @@ public:
     virtual void setXVelocityToDefault() { this->setXVelocity(default_velocity); }
     virtual void setPosition(int x, int y) { setXPosition(x); setYPosition(y); }
     virtual void setJumpCtr(int j) { jumpctr = j; }
+    virtual void setDefaultVelocity (int vel) { default_velocity = vel; }
 
     virtual void jump();
-    virtual void update(void);
+    virtual void update();
 
 
 private:

@@ -15,6 +15,7 @@ public:
     CollisionDetector(std::vector<Obstacle>& obstacles);
 
     void checkCollisions();
+    void applyCollisions();
     void checkVerticalCollisions();
 
     // getters and setters
@@ -25,4 +26,9 @@ public:
 
 private:
     std::vector<Obstacle>& obstacles;
+    bool horizontal_collision = false;
+    bool upward_collision = false;
+    bool downward_collision = false;
+    int collisionX = 0;
+    int collisionY = 0;
 };

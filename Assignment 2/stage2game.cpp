@@ -51,20 +51,17 @@ void Stage2Game::paintEvent(QPaintEvent *event) {
 
     background.render(painter, paused);
 
-    for (int i = 0; i < obstacles.size(); i++) {
-        obstacles.at(i).render(painter, paused);
+    for (auto& obs : obstacles) {
+        obs.render(painter, paused);
     }
 
     // update the obstacles in the collision detector and check for upcoming collisions
     CollisionDetector detector(obstacles);
     detector.checkCollisions();
+    detector.applyCollisions();
 
     // stickman dynamics update
     Config::config()->getStickman()->update();
-
-    //    detector.setObstacles(obstacles);
-    //    detector.checkVerticalCollisions();
-
 
     //Once the frame is the last, reset
     if (stickman_frame > 9) {
@@ -116,7 +113,6 @@ void Stage2Game::keyPressEvent(QKeyEvent *event) {
              * Pause the screen
              * Show the pause dialog
             */
-
             pause();
 
             PauseDialog pause_dialog(&this->paused);

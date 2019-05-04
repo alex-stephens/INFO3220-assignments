@@ -3,7 +3,7 @@ Position:500
 xVelocity:10
 Background:1
 Stage2:true
-ObstacleHeight:250
+ObstacleHeight:100
 ObstacleWidth:600
 ObstacleSpacing:500
 Obstacles:750, 250, 250,500

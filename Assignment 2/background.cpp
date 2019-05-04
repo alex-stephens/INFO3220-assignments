@@ -116,6 +116,7 @@ void Background::render(QPainter &painter, bool paused) {
             second_coordinate.changeInXCoordinate(-0.3);
         }
         third_coordinate.changeInXCoordinate(-Config::config()->getStickman()->getXVelocity());
+        std::cout << "background vel: " << Config::config()->getStickman()->getXVelocity() << std::endl;
     }
 
 

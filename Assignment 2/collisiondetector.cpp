@@ -3,29 +3,16 @@
 CollisionDetector::CollisionDetector(std::vector<Obstacle>& obstacles)
     : obstacles(obstacles) { }
 
-//CollisionDetector::CollisionDetector() {
-//    obstacles = std::vector<Obstacle>();
-//}
-
-
 void CollisionDetector::checkCollisions() {
     Stage2Stickman * stickman = Config::config()->getStickman();
     int x1, x2, y1, y2;
     x1 = stickman->getXPosition() - stickman->getWidth()/2; x2 = x1 + stickman->getWidth();
     y1 = stickman->getYPosition() + stickman->getHeight(); y2 = y1 - stickman->getHeight();
 
-    std::cout << "stickman: " << x1 << ", " << x2<< ", "  << y1<< ", "  << y2 << std::endl;
-
-    bool horizontal_collision = false;
-    bool upward_collision = false;
-    bool downward_collision = false;
-    int collisionX, collisionY;
-
     for (Obstacle o : obstacles) {
         int x3, x4, y3, y4;
 
         int yvel = Config::config()->getStickman()->getYVelocity();
-        std::cout << "y velocity: " << yvel << std::endl;
         x3 = o.getCoordinate().getXCoordinate(); x4 = x3 + o.getWidth();
         y3 = o.getCoordinate().getYCoordinate(); y4 = y3 - o.getHeight();
 
@@ -46,7 +33,6 @@ void CollisionDetector::checkCollisions() {
         int xvel = Config::config()->getStickman()->getXVelocity();
         x3 = o.getCoordinate().getXCoordinate(); x4 = x3 + o.getWidth();
         y3 = o.getCoordinate().getYCoordinate(); y4 = y3 - o.getHeight();
-//        std::cout << "obstacle: " << x3 << ", " << x4<< ", "  << y3<< ", "  << y4 << std::endl;
 
         if ((x1 < x4 != x2+xvel < x3) && (y1 < y4 != y2 < y3)) {
             horizontal_collision = true;
@@ -56,11 +42,11 @@ void CollisionDetector::checkCollisions() {
             std::cout << "horizontal collision" << std::endl;
             break;
         }
-
-
     }
+}
 
-
+void CollisionDetector::applyCollisions() {
+    std::cout << "default vel: " << Config::config()->getStickman()->getDefaultVelocity();
     if (horizontal_collision) {
         Config::config()->getStickman()->setXVelocity(0);
     }
@@ -77,4 +63,9 @@ void CollisionDetector::checkCollisions() {
         Config::config()->getStickman()->setYPosition(collisionY);
         Config::config()->getStickman()->setJumpCtr(0);
     }
+
+    // reset collision variables
+    horizontal_collision = false;
+    upward_collision = false;
+    downward_collision = false;
 }

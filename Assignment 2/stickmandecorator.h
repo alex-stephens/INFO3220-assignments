@@ -10,6 +10,7 @@ public:
     StickmanDecorator(Stage2Stickman* stickman) : stickman(stickman) {
         std::cout << "Constructed---StickmanDecorator" << std::endl;
         std::cout << "X position: " << this->stickman->getXPosition() << std::endl;
+        stickman->setDefaultVelocity(stickman->getXVelocity()); // not sure why this is required
     }
 
     // getters
@@ -22,6 +23,7 @@ public:
 
     int getYPosition() override { return stickman->getYPosition(); }
     double getYVelocity() override { return stickman->getYVelocity(); }
+    int getDefaultVelocity() override { return stickman->getDefaultVelocity(); }
 
     //Change and set functions
     void setSize(std::string new_size) override { stickman->setSize(new_size); }
@@ -29,10 +31,13 @@ public:
     void setXVelocity(int new_velocity) override { stickman->setXVelocity(new_velocity); }
     virtual void setDimensions() override { stickman->setDimensions(); }
     virtual void resizeStickman() override { stickman->resizeStickman(); }
+    void setDefaultVelocity(int vel) override { stickman->setDefaultVelocity(vel); }
 
     void setYPosition(int new_position) override { stickman->setYPosition(new_position); }
     void setYVelocity(int new_velocity) override { stickman->setYVelocity(new_velocity); }
     void setPosition(int x, int y) override { stickman->setPosition(x,y); }
+    void setXVelocityToDefault() override { stickman->setXVelocityToDefault();}
+    void setJumpCtr(int j) override { stickman->setJumpCtr(j); }
 
     virtual void update() override {
         stickman->update(); // update by delegation
