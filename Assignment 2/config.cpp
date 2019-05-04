@@ -127,12 +127,5 @@ void Config::setupConfig() {
     //Create the stickman, given the parameters from the config file
     Config::config()->setStickman(new MotionDecorator(new Stage2Stickman(config_size, config_position, background_velocity)));
 //    Config::config()->setStickman(new Stage2Stickman(config_size, config_position, background_velocity));
-
-
-    // check what obstacles were found
-//    std::cout << "OBSTACLES:" << std::endl;
-//    for (Obstacle i : obstacles) {
-//        std::cout << i.getCoordinate().getXCoordinate() << ", " << i.getCoordinate().getYCoordinate() << std::endl;
-//    }
 }
 

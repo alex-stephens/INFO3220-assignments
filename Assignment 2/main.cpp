@@ -21,10 +21,11 @@ int main(int argc, char *argv[]) {
     QSoundEffect sound;
     sound.setSource(QUrl::fromLocalFile(":sound/background_music.wav"));
     sound.setLoopCount(QSoundEffect::Infinite);
-    sound.setVolume(0.25f);
+    sound.setVolume(0.25);
     sound.play();
 
-    StartDialog start_dialog(new Stage2GameFactory());
+    StartDialog start_dialog(new Stage2GameFactory);
+
     start_dialog.setWindowTitle("Main Menu");
     start_dialog.show();
 

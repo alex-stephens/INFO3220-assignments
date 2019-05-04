@@ -72,7 +72,7 @@ private:
     Stage2Stickman *stickman;
 
     // stage 2 member variables
-    bool stage2_enable;
+    bool stage2_enable = false;
     int obstacle_height;
     int obstacle_width;
     int obstacle_spacing;

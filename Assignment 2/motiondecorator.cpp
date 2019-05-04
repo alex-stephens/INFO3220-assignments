@@ -8,15 +8,3 @@ void MotionDecorator::update() {
 //    Config::config()->getStickman()->setXVelocity(0);
     StickmanDecorator::update(); // update by delegation
 }
-
-
-bool MotionDecorator::jump() {
-
-    std::cout << "motion decorator jump" << std::endl;
-
-    bool jumped = StickmanDecorator::jump();
-    if (jumped) {
-        effect.play();
-    }
-    return jumped;
-}

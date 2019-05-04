@@ -51,17 +51,22 @@ void Stage2Game::paintEvent(QPaintEvent *event) {
 
     background.render(painter, paused);
 
-    for (auto& obs : obstacles) {
-        obs.render(painter, paused);
+    // stage 2 additions
+    if (Config::config()->getStage2Enable()) {
+
+        // render obstacles
+        for (auto& obs : obstacles) {
+            obs.render(painter, paused);
+        }
+
+        // update the obstacles in the collision detector and check for upcoming collisions
+        CollisionDetector detector(obstacles);
+        detector.checkCollisions();
+        detector.applyCollisions();
+
+        // stickman dynamics update
+        Config::config()->getStickman()->update();
     }
-
-    // update the obstacles in the collision detector and check for upcoming collisions
-    CollisionDetector detector(obstacles);
-    detector.checkCollisions();
-    detector.applyCollisions();
-
-    // stickman dynamics update
-    Config::config()->getStickman()->update();
 
     //Once the frame is the last, reset
     if (stickman_frame > 9) {
