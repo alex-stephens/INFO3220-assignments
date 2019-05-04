@@ -7,3 +7,4 @@ ObstacleHeight:250
 ObstacleWidth:600
 ObstacleSpacing:500
 Obstacles:750, 250, 250,500
+ObstacleColorHex:ff0000

@@ -5,20 +5,24 @@ Obstacle::Obstacle()
       height(100),
       width(100),
       repeat_span(1000),
-      speed(10) { }
+      speed(10),
+      color("#ffff00") { }
 
-Obstacle::Obstacle(Coordinate coordinate, int height, int width, int repeat_span, int speed)
+Obstacle::Obstacle(Coordinate coordinate, int height, int width, int repeat_span, int speed, QString color)
     : coordinate(coordinate),
       height(height),
       width(width),
       repeat_span(repeat_span),
-      speed(speed) { }
+      speed(speed),
+      color(color) { }
 
-void Obstacle:: render(QPainter &painter, bool paused) {
+void Obstacle::render(QPainter &painter, bool paused) {
     QPen pen;
+    QColor qcolor(color);
     pen.setWidth(3);
     pen.setColor(Qt::black);
-    QBrush brush(Qt::yellow);
+
+    QBrush brush(qcolor);
     painter.setPen (pen);
     painter.setBrush(brush);
 

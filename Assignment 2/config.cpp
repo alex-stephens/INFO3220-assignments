@@ -103,6 +103,19 @@ void Config::setupConfig() {
                     obstacles.push_back(s.toInt());
                 }
             }
+            else if (split_line.first() == "ObstacleColorHex") {
+                bool validHex = false;
+                element.toInt(&validHex, 16);
+
+                // colour defaults to yellow on invalid hex
+                if (validHex && element.length() == 6)
+                {
+                    obstacle_color = "#" + element;
+                }
+                else {
+                    obstacle_color = "#ffff00";
+                }
+            }
 
         }
 

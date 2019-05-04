@@ -21,6 +21,7 @@ public:
     virtual void setYVelocity(int new_velocity) { yvelocity = new_velocity; }
     virtual void setXVelocityToDefault() { this->setXVelocity(default_velocity); }
     virtual void setPosition(int x, int y) { setXPosition(x); setYPosition(y); }
+    virtual void setJumpCtr(int j) { jumpctr = j; }
 
     virtual void jump();
     virtual void update(void);
@@ -30,5 +31,5 @@ private:
     double yvelocity = 0;
     int yposition = 0 ;
     int default_velocity = this->getXVelocity();
-    int jumpctr = 0; // used to implement double jump
+    int jumpctr = 0; // used to implement double/multi jump
 };

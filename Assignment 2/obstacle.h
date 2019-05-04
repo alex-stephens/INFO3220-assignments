@@ -1,6 +1,7 @@
 #pragma once
 
 #include <QPainter>
+#include <QColor>
 #include <iostream>
 
 #include "coordinate.h"
@@ -10,7 +11,7 @@ class Obstacle
 {
 public:
     Obstacle();
-    Obstacle(Coordinate coordinate, int height, int width, int repeat_span, int speed);
+    Obstacle(Coordinate coordinate, int height, int width, int repeat_span, int speed, QString color);
 
     // getters
     Coordinate getCoordinate() { return coordinate; }
@@ -26,5 +27,6 @@ private:
     int width;
     int repeat_span; // how long before the object repeats itself
     int speed = 0;
+    QString color;
 };
 

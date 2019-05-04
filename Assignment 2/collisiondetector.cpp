@@ -46,7 +46,7 @@ void CollisionDetector::checkCollisions() {
         int xvel = Config::config()->getStickman()->getXVelocity();
         x3 = o.getCoordinate().getXCoordinate(); x4 = x3 + o.getWidth();
         y3 = o.getCoordinate().getYCoordinate(); y4 = y3 - o.getHeight();
-        std::cout << "obstacle: " << x3 << ", " << x4<< ", "  << y3<< ", "  << y4 << std::endl;
+//        std::cout << "obstacle: " << x3 << ", " << x4<< ", "  << y3<< ", "  << y4 << std::endl;
 
         if ((x1 < x4 != x2+xvel < x3) && (y1 < y4 != y2 < y3)) {
             horizontal_collision = true;
@@ -75,6 +75,6 @@ void CollisionDetector::checkCollisions() {
     else if (downward_collision && Config::config()->getStickman()->getYVelocity() < 0) {
         Config::config()->getStickman()->setYVelocity(0);
         Config::config()->getStickman()->setYPosition(collisionY);
+        Config::config()->getStickman()->setJumpCtr(0);
     }
-
 }

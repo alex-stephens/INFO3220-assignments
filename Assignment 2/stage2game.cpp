@@ -19,6 +19,7 @@ Stage2Game::Stage2Game(QWidget *parent) :
     int width = Config::config()->getObstacleWidth();
     int height = Config::config()->getObstacleHeight();
     int spacing = Config::config()->getObstacleSpacing();
+    QString color = Config::config()->getObstacleColor();
     std::vector<int> int_obstacles = Config::config()->getObstacles();
 
     int repeat_span = (width + spacing) * int_obstacles.size();
@@ -26,7 +27,7 @@ Stage2Game::Stage2Game(QWidget *parent) :
 
     for (int o : int_obstacles) {
         Coordinate c(obstacle_x, o, Config::config()->getWorldHeight(), Config::config()->getWorldWidth());
-        obstacles.push_back(Obstacle(c, height, width, repeat_span, Config::config()->getBackgroundVelocity()));
+        obstacles.push_back(Obstacle(c, height, width, repeat_span, Config::config()->getBackgroundVelocity(),color));
         obstacle_x += spacing + width;
     }
 
@@ -56,7 +57,6 @@ void Stage2Game::paintEvent(QPaintEvent *event) {
 
     // update the obstacles in the collision detector and check for upcoming collisions
     CollisionDetector detector(obstacles);
-
     detector.checkCollisions();
 
     // stickman dynamics update

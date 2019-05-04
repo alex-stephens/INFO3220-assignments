@@ -50,6 +50,7 @@ public:
     int getObstacleWidth() { return obstacle_width; }
     int getObstacleHeight() { return obstacle_height; }
     int getObstacleSpacing() { return obstacle_spacing; }
+    QString getObstacleColor() { return obstacle_color; }
     std::vector<int> getObstacles() { return obstacles; }
 
     // Stage 2 setter functions
@@ -76,5 +77,6 @@ private:
     int obstacle_width;
     int obstacle_spacing;
     std::vector<int> obstacles;
+    QString obstacle_color;
 };
 
