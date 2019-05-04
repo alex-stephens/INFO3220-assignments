@@ -43,8 +43,8 @@ public:
         stickman->update(); // update by delegation
     }
 
-    virtual void jump() override {
-        stickman->jump();
+    virtual bool jump() override {
+        return stickman->jump();
     }
 };
 

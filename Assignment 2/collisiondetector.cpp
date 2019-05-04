@@ -46,7 +46,7 @@ void CollisionDetector::checkCollisions() {
 }
 
 void CollisionDetector::applyCollisions() {
-    std::cout << "default vel: " << Config::config()->getStickman()->getDefaultVelocity();
+
     if (horizontal_collision) {
         Config::config()->getStickman()->setXVelocity(0);
     }

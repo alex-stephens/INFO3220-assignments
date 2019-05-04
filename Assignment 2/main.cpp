@@ -1,6 +1,7 @@
 #include <QApplication>
 #include <iostream>
 #include <QSound>
+#include <QSoundEffect>
 
 #include "config.h"
 #include "startdialog.h"
@@ -17,8 +18,10 @@ int main(int argc, char *argv[]) {
     Config::config()->setupConfig();
 
     //Infinite loop of background music
-    QSound sound(":sound/background_music.wav");
-    sound.setLoops(-1);
+    QSoundEffect sound;
+    sound.setSource(QUrl::fromLocalFile(":sound/background_music.wav"));
+    sound.setLoopCount(QSoundEffect::Infinite);
+    sound.setVolume(0.25f);
     sound.play();
 
     StartDialog start_dialog(new Stage2GameFactory());

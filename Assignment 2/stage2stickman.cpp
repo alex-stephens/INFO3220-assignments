@@ -24,10 +24,12 @@ void Stage2Stickman::update() {
     }
 }
 
-void Stage2Stickman::jump() {
+bool Stage2Stickman::jump() {
     if (jumpctr < 2) {
         yvelocity = 30;
         std::cout << "stickman jumped" << std::endl;
         ++jumpctr;
+        return true;
     }
+    return false;
 }

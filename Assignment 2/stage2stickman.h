@@ -25,7 +25,7 @@ public:
     virtual void setJumpCtr(int j) { jumpctr = j; }
     virtual void setDefaultVelocity (int vel) { default_velocity = vel; }
 
-    virtual void jump();
+    virtual bool jump();
     virtual void update();
 
 
