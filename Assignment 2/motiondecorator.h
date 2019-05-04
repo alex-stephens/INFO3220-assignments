@@ -18,7 +18,7 @@ public:
     }
     virtual void update() override;
 
-//    virtual bool jump() override;
+    virtual bool jump() override;
 
 private:
     QSoundEffect effect;

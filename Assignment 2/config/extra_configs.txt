@@ -1,3 +1,5 @@
+-------- Config with small purple obstacles -------- 
+
 Size:giant
 Position:500
 xVelocity:10
@@ -8,3 +10,11 @@ ObstacleWidth:50
 ObstacleSpacing:100
 Obstacles:50,250,350,450,350,250,350,250,450,50,350,250
 ObstacleColorHex:7800a0
+
+-------- Plain Stage 1 config -------- 
+
+Size:giant
+Position:500
+xVelocity:10
+Background:1
+
