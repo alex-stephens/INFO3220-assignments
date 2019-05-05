@@ -48,9 +48,11 @@ The game dialog is created by a factory to allow for easy extension. The separat
 
   1. Double jump - easily configurable as "multi-jump" (e.g. triple jump) as well.
   2. Sound effect on jump.
+  3. Sound effect on collision with obstacles -- audible when stickman bumps his head, lands on an obstacle, or runs into one horizontally,.
+  4. Configurability of jumping, including gravity and jump strength. 
 
 # Design Patterns (Stage 2) 
 
 ## Decorator
 
-Decorators are used to dynamically extend functionality of various objects. For example, for the stickman object (`Stage2Stickman`) we provide a decorator (abstract class `StickmanDecorator`) implemented in `MotionDecorator` to add the jump sound effect. 
+Decorators are used to dynamically extend functionality of the stickman. For the stickman object (`Stage2Stickman`) we provide a decorator (abstract class `StickmanDecorator`), which is implemented in `MotionDecorator` to add the jump sound effect. It was intended to also include collision detection as part of this decorator (in separate concrete decorator) but this proved tricky to implement.
