@@ -78,5 +78,8 @@ private:
     int obstacle_spacing;
     std::vector<int> obstacles;
     QString obstacle_color;
+
+    int jump_vel;
+    int gravity;
 };
 

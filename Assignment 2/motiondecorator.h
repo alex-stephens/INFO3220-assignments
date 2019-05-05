@@ -17,7 +17,6 @@ public:
         effect.setVolume(1.0f);
     }
 
-    virtual void update() override;
     virtual bool jump() override;
 
 private:

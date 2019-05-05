@@ -28,10 +28,16 @@ public:
     virtual bool jump();
     virtual void update();
 
+    virtual void setJumpVelocity(int vel) { jump_vel = vel; }
+    virtual void setGravity(int g) { gravity = g; }
+
 
 private:
     double yvelocity = 0;
     int yposition = 0 ;
     int default_velocity = this->getXVelocity();
     int jumpctr = 0; // used to implement double/multi jump
+
+    int jump_vel = 30;
+    int gravity = 2;
 };

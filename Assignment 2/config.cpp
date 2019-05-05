@@ -116,7 +116,20 @@ void Config::setupConfig() {
                     obstacle_color = "#ffff00";
                 }
             }
-
+            else if (split_line.first() == "JumpVelocity") {
+                if (element.toInt() < 10 || element.toInt() > 50) {
+                    std::cerr << "Jump strength must be between 10 (weak) and 50 (strong)" << std::endl;
+                    return;
+                }
+                jump_vel = element.toInt();
+            }
+            else if (split_line.first() == "Gravity") {
+                if (element.toInt() < 1 || element.toInt() > 3) {
+                    std::cerr << "Gravity must be between 1 (weak) and 3 (strong)" << std::endl;
+                    return;
+                }
+                gravity = element.toInt();
+            }
         }
 
         config_file.close();
@@ -126,6 +139,10 @@ void Config::setupConfig() {
 
     //Create the stickman, given the parameters from the config file
     Config::config()->setStickman(new MotionDecorator(new Stage2Stickman(config_size, config_position, background_velocity)));
-//    Config::config()->setStickman(new Stage2Stickman(config_size, config_position, background_velocity));
+    //    Config::config()->setStickman(new Stage2Stickman(config_size, config_position, background_velocity));
+
+    // extension params
+    Config::config()->getStickman()->setGravity(gravity);
+    Config::config()->getStickman()->setJumpVelocity(jump_vel);
 }
 

@@ -14,7 +14,7 @@
 void Stage2Stickman::update() {
 
     yposition += yvelocity;
-    yvelocity -= 2; // gravity
+    yvelocity -= 3; // gravity
 
     // hitting the ground
     if (yposition <= 0) {
@@ -25,8 +25,8 @@ void Stage2Stickman::update() {
 }
 
 bool Stage2Stickman::jump() {
-    if (jumpctr < 2) {
-        yvelocity = 30;
+    if (jumpctr < gravity) {
+        yvelocity = jump_vel;
         std::cout << "stickman jumped" << std::endl;
         ++jumpctr;
         return true;
