@@ -20,8 +20,6 @@ public:
     std::vector<Obstacle> getObstacles(void) { return obstacles; }
     void setObstacles(std::vector<Obstacle>& new_obstacles) { obstacles = new_obstacles; }
 
-
-
 private:
     std::vector<Obstacle>& obstacles;
     bool horizontal_collision = false;

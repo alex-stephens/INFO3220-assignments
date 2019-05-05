@@ -14,7 +14,7 @@
 void Stage2Stickman::update() {
 
     yposition += yvelocity;
-    yvelocity -= 3; // gravity
+    yvelocity -= gravity;
 
     // hitting the ground
     if (yposition <= 0) {

@@ -7,9 +7,6 @@ class Stage2Stickman : public Stickman
 
 public:
     using Stickman::Stickman;
-//    Stage2Stickman(std::string size = "small",
-//                     int xposition = 0,
-//                     double starting_velocity = 0.0);
     ~Stage2Stickman() = default;
 
     // Getters

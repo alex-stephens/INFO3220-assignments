@@ -26,7 +26,6 @@ private:
     int height;
     int width;
     int repeat_span; // how long before the object repeats itself
-    int speed = 0;
     QString color;
 };
 

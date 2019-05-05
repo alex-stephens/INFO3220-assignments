@@ -8,8 +8,6 @@ class StickmanDecorator : public Stage2Stickman
 
 public:
     StickmanDecorator(Stage2Stickman* stickman) : stickman(stickman) {
-        std::cout << "Constructed---StickmanDecorator" << std::endl;
-        std::cout << "X position: " << this->stickman->getXPosition() << std::endl;
         stickman->setDefaultVelocity(stickman->getXVelocity()); // not sure why this is required
     }
 
@@ -39,12 +37,7 @@ public:
     void setXVelocityToDefault() override { stickman->setXVelocityToDefault();}
     void setJumpCtr(int j) override { stickman->setJumpCtr(j); }
 
-    virtual void update() override {
-        stickman->update(); // update by delegation
-    }
-
-    virtual bool jump() override {
-        return stickman->jump();
-    }
+    virtual void update() override { stickman->update(); }
+    virtual bool jump() override { return stickman->jump(); }
 };
 
