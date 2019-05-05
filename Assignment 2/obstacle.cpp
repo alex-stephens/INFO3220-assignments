@@ -5,7 +5,6 @@ Obstacle::Obstacle()
       height(100),
       width(100),
       repeat_span(1000),
-      speed(10),
       color("#ffff00") { }
 
 Obstacle::Obstacle(Coordinate coordinate, int height, int width, int repeat_span, int speed, QString color)
@@ -13,7 +12,6 @@ Obstacle::Obstacle(Coordinate coordinate, int height, int width, int repeat_span
       height(height),
       width(width),
       repeat_span(repeat_span),
-      speed(speed),
       color(color) { }
 
 void Obstacle::render(QPainter &painter, bool paused) {

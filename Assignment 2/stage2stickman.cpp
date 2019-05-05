@@ -27,7 +27,6 @@ void Stage2Stickman::update() {
 bool Stage2Stickman::jump() {
     if (jumpctr < gravity) {
         yvelocity = jump_vel;
-        std::cout << "stickman jumped" << std::endl;
         ++jumpctr;
         return true;
     }

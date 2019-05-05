@@ -2,7 +2,6 @@
 
 MotionDecorator::MotionDecorator(Stage2Stickman * stickman)
     : StickmanDecorator (stickman) {
-    std::cout << "Constructing motion decorated stickman" << std::endl;
 
     effect.setSource(QUrl::fromLocalFile(":sound/jump.wav"));
     effect.setLoopCount(1); //QSoundEffect::Infinite);

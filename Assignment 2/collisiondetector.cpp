@@ -25,13 +25,11 @@ void CollisionDetector::checkCollisions() {
         if (yvel > 0 && (x1 < x4 != x2 < x3) && (y1+yvel > y4 && y2 <= y4)) {
             upward_collision = true;
             collisionY = y4 - Config::config()->getStickman()->getHeight();
-            std::cout << "upward collision" << std::endl;
         }
         // downward collision
         if (yvel < 0 && (x1 < x4 != x2 < x3) && (y2+yvel < y3 && y1 >= y4)) {
             downward_collision = true;
             collisionY = y3;
-            std::cout << "downward collision" << std::endl;
         }
 
         // horizontal collision
@@ -44,7 +42,6 @@ void CollisionDetector::checkCollisions() {
             upward_collision = false;
             downward_collision = false;
             collisionX = x3 - Config::config()->getStickman()->getWidth();
-            std::cout << "horizontal collision" << std::endl;
             break;
         }
     }
@@ -69,14 +66,6 @@ void CollisionDetector::applyCollisions() {
         Config::config()->getStickman()->setJumpCtr(0);
     }
 
-    if (horizontal_collision) {
-        std::cout << "horizontal collision" <<std::endl;
-    }
-    else {
-        std::cout << "NO horizontal collision" <<std::endl;
-
-    }
-
     if (horizontal_collision || upward_collision || downward_collision) {
         if (prev_collision >= 3) {
             effect.play();
@@ -86,7 +75,6 @@ void CollisionDetector::applyCollisions() {
     else {
         ++prev_collision;
     }
-
 
     // reset collision variables
     horizontal_collision = false;
