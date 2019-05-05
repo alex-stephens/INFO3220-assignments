@@ -10,8 +10,6 @@
 class CollisionDetector
 {
 public:
-//    virtual ~CollisionDetector();
-//    CollisionDetector();
     CollisionDetector(std::vector<Obstacle>& obstacles);
 
     void checkCollisions();
@@ -31,4 +29,10 @@ private:
     bool downward_collision = false;
     int collisionX = 0;
     int collisionY = 0;
+
+    QSoundEffect effect;
+
+    // buffer - can't have two collisions within 3 frames
+    int prev_collision = 0;
+
 };

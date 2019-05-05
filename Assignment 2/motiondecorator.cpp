@@ -12,8 +12,6 @@ void MotionDecorator::update() {
 
 bool MotionDecorator::jump() {
 
-    std::cout << "motion decorator jump" << std::endl;
-
     bool jumped = StickmanDecorator::jump();
     if (jumped) {
         effect.play();

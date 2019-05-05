@@ -20,5 +20,6 @@
         <file>sound/background_music.wav</file>
         <file>config/config.txt</file>
         <file>sound/jump.wav</file>
+        <file>sound/bump.wav</file>
     </qresource>
 </RCC>

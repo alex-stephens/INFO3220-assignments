@@ -39,4 +39,6 @@ private:
     std::vector<Obstacle> obstacles;
     int stickman_frame;
     int counter;
+
+    CollisionDetector detector{obstacles};
 };

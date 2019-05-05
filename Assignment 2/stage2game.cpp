@@ -38,6 +38,7 @@ Stage2Game::Stage2Game(QWidget *parent) :
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(nextFrame()));
     timer->start(32);
+//    CollisionDetector detector(obstacles);
 
 }
 
@@ -60,7 +61,7 @@ void Stage2Game::paintEvent(QPaintEvent *event) {
         }
 
         // update the obstacles in the collision detector and check for upcoming collisions
-        CollisionDetector detector(obstacles);
+        detector.setObstacles(obstacles);
         detector.checkCollisions();
         detector.applyCollisions();
 

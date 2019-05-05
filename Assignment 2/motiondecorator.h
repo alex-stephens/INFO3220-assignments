@@ -16,8 +16,8 @@ public:
         effect.setLoopCount(1); //QSoundEffect::Infinite);
         effect.setVolume(1.0f);
     }
-    virtual void update() override;
 
+    virtual void update() override;
     virtual bool jump() override;
 
 private:

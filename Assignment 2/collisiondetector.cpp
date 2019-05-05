@@ -1,7 +1,12 @@
 #include "collisiondetector.h"
 
 CollisionDetector::CollisionDetector(std::vector<Obstacle>& obstacles)
-    : obstacles(obstacles) { }
+    : obstacles(obstacles) {
+
+    effect.setSource(QUrl::fromLocalFile(":sound/bump.wav"));
+    effect.setLoopCount(1); //QSoundEffect::Infinite);
+    effect.setVolume(0.2f);
+}
 
 void CollisionDetector::checkCollisions() {
     Stage2Stickman * stickman = Config::config()->getStickman();
@@ -38,7 +43,7 @@ void CollisionDetector::checkCollisions() {
             horizontal_collision = true;
             upward_collision = false;
             downward_collision = false;
-            collisionX = x3;
+            collisionX = x3 - Config::config()->getStickman()->getWidth();
             std::cout << "horizontal collision" << std::endl;
             break;
         }
@@ -50,7 +55,7 @@ void CollisionDetector::applyCollisions() {
     if (horizontal_collision) {
         Config::config()->getStickman()->setXVelocity(0);
     }
-    else /*if (Config::config()->getStickman()->getXVelocity() == 0)*/ {
+    else {
         Config::config()->getStickman()->setXVelocityToDefault();
     }
 
@@ -64,8 +69,28 @@ void CollisionDetector::applyCollisions() {
         Config::config()->getStickman()->setJumpCtr(0);
     }
 
+    if (horizontal_collision) {
+        std::cout << "horizontal collision" <<std::endl;
+    }
+    else {
+        std::cout << "NO horizontal collision" <<std::endl;
+
+    }
+
+    if (horizontal_collision || upward_collision || downward_collision) {
+        if (prev_collision >= 3) {
+            effect.play();
+        }
+        prev_collision = 0;
+    }
+    else {
+        ++prev_collision;
+    }
+
+
     // reset collision variables
     horizontal_collision = false;
     upward_collision = false;
     downward_collision = false;
+
 }

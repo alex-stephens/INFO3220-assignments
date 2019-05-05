@@ -7,10 +7,8 @@ PauseDialog::PauseDialog(bool *paused, QWidget *parent) :
     paused(paused) {
 
     ui->setupUi(this);
-//    this->setStyleSheet("background-color: #FFFFFF;"); //White
     this->setFixedSize(this->width(), this->height());
     setUpUI();
-
 }
 
 PauseDialog::~PauseDialog() {
@@ -62,7 +60,6 @@ void PauseDialog::on_buttonBox_clicked(QAbstractButton *button) {
 
         *this->paused = false;
     }
-
 }
 
 
