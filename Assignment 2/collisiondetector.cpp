@@ -5,7 +5,7 @@ CollisionDetector::CollisionDetector(std::vector<Obstacle>& obstacles)
 
     effect.setSource(QUrl::fromLocalFile(":sound/bump.wav"));
     effect.setLoopCount(1); //QSoundEffect::Infinite);
-    effect.setVolume(0.2f);
+    effect.setVolume(0.4f);
 }
 
 void CollisionDetector::checkCollisions() {

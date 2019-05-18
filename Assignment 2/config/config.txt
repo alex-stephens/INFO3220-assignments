@@ -4,9 +4,9 @@ xVelocity:10
 Background:1
 Stage2:true
 ObstacleHeight:50
-ObstacleWidth:50
+ObstacleWidth:300
 ObstacleSpacing:100
 Obstacles:50,250,350,450,350,250,350,250,450,50,350,250
 ObstacleColorHex:7800a0
-JumpVelocity:30
-Gravity:2
+JumpVelocity:20
+Gravity:1
