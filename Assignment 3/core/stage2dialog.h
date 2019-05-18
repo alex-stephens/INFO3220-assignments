@@ -14,7 +14,9 @@ public:
      */
     Stage2Dialog(Game &game, std::unique_ptr<Stickman> stickman, std::unique_ptr<EntityFactory> factory, std::vector<std::pair<std::unique_ptr<Entity>, int>> obstacleLayout);
 
-    void update();
+    virtual void update();
+
+    void changeDistanceToSpawn(int val) { distanceToSpawn += val; }
 
 protected:
     virtual void spawnObstacles(unsigned int counter);

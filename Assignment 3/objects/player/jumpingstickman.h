@@ -15,7 +15,7 @@ public:
      * @param gravity The falling rate
      */
     JumpingStickman(int floor, int jumpImpulse = 15, int maxJumpCount = 2, int gravity = -1);
-    ~JumpingStickman();
+    virtual ~JumpingStickman();
 
     void jump();
     bool canJump();
