@@ -58,7 +58,8 @@ SOURCES += \
     core/stage2dialog.cpp \
     core/swaprendererstage.cpp \
     core/testing/testcases/flyingobstacletest.cpp \
-    core/stagefactory.cpp
+    core/stagefactory.cpp \
+    core/stage3dialog.cpp
 
 HEADERS += \
     objects/entities/colouredentity.h \
@@ -87,7 +88,8 @@ HEADERS += \
     core/stage2dialog.h \
     core/swaprendererstage.h \
     core/testing/testcases/flyingobstacletest.h \
-    core/stagefactory.h
+    core/stagefactory.h \
+    core/stage3dialog.h
 
 FORMS += \
         dialog.ui

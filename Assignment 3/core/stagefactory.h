@@ -3,6 +3,7 @@
 
 #include <QString>
 #include <memory>
+#include <iostream>
 #include "entity.h"
 #include "gamestage.h"
 #include "game.h"

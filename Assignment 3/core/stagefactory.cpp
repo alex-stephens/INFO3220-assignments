@@ -5,6 +5,7 @@
 #include "swaprendererstage.h"
 #include "testingdialog.h"
 #include "stage2dialog.h"
+#include "stage3dialog.h"
 #include "dialog.h"
 #include "moon.h"
 #include "background.h"
@@ -14,7 +15,30 @@ StageFactory::StageFactory(Config config) : config(config) {
 }
 
 std::unique_ptr<GameStage> StageFactory::createStage() {
-    if (config.stage == 2) {
+    if (config.stage == 3) {
+        std::cout << "Initialising Stage 3 configuration" << std::endl;
+        // Stage 3 non-test mode
+        auto player = std::make_unique<JumpingStickman>(config.coord.getYCoordinate());
+        player->setSize(config.size);
+        player->setCoordinate(config.coord);
+        player->setSprite(":sprites/sprite0.png");
+
+        auto factory = std::make_unique<EntityFactory>();
+        factory->setVelocity(0);
+
+        auto stage = std::make_unique<Stage3Dialog>(*config.game, std::move(player), std::move(factory), std::move(*config.obstacles));
+
+        Background bg;
+        bg.setCoordinate(Coordinate(0, 150, 450));
+        bg.setSprite(config.background);
+        bg.setVelocity(0);
+
+        stage->setBackground(bg);
+        stage->setMoon(Moon(Coordinate(400, -140, 450), 181.0, 550));
+        return std::make_unique<SwapRendererStage>(std::move(stage));
+    }
+
+    else if (config.stage == 2) {
         if (config.testMode) {
             // Stage 2 test mode
             std::vector<std::unique_ptr<TestRunner>> tests;

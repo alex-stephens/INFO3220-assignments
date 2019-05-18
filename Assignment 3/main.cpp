@@ -119,7 +119,7 @@ int main(int argc, char *argv[]) {
                 return 0;
             }
             stageConfig.stage = value.toInt();
-            if (stageConfig.stage != 1 && stageConfig.stage != 2) {
+            if (stageConfig.stage < 1 || stageConfig.stage > 3) {
                 cout << "Invalid stage value. Terminating";
                 return 0;
             }
