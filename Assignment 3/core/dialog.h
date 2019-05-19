@@ -16,6 +16,8 @@
 #include "game.h"
 #include "renderer.h"
 
+#define OFFSCREEN_BUFFER 1000 // objects aren't deleted until they're this far off screen to the left
+
 class Dialog : public GameStage {
 public:
     Dialog(Game &game, std::unique_ptr<Stickman> stickman, std::unique_ptr<EntityFactory> factory);

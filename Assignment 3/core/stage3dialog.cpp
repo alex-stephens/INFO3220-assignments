@@ -7,7 +7,7 @@ Stage3Dialog::Stage3Dialog(Game &game, std::unique_ptr<FlyingStickman> stickman,
 void Stage3Dialog::update() {
     stickman->update(obstacles);
     background.setVelocity(stickman->getVelocity());
-    stickman->setVelocity(stickman->getVelocity() * 0.95); // motion smoothing -- don't drop to 0 immediately
+    stickman->setVelocity(stickman->getVelocity() * 0.9); // motion smoothing -- don't drop to 0 immediately
 
     if (!stickman->isColliding()) {
         // Reduce distance to next obstacle
