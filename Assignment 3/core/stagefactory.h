@@ -9,6 +9,18 @@
 #include "game.h"
 #include "entityfactory.h"
 #include "dialog.h"
+#include "collisiontest.h"
+#include "jumptest.h"
+#include "flyingobstacletest.h"
+#include "swaprendererstage.h"
+#include "testingdialog.h"
+#include "stage2dialog.h"
+#include "stage3dialog.h"
+#include "dialog.h"
+#include "moon.h"
+#include "background.h"
+#include "flyingstickman.h"
+
 
 class StageFactory {
 public:

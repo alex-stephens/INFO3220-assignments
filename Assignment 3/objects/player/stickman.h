@@ -33,6 +33,9 @@ public:
     int width();
     int height();
 
+    int getVelocity() { return velocity; }
+    void setVelocity(int val) { velocity = val; }
+
 protected:
     bool colliding;
 
@@ -40,6 +43,7 @@ private:
     Coordinate coordinate;
     std::string size;
     QPixmap sprite;
+    int velocity = 5;
 };
 
 #endif // STICKMAN_H

@@ -20,8 +20,17 @@ public:
     void jump();
     bool canJump();
 
-    void handleInput(QKeyEvent &event);
-    void update(std::vector<std::unique_ptr<Entity>> &obstacles);
+    virtual void handleInput(QKeyEvent &event);
+    virtual void update(std::vector<std::unique_ptr<Entity>> &obstacles);
+
+    // getters and setters for stage 3
+    int getJumpVelocity() { return jumpVelocity; }
+    int getGravity() { return gravity; }
+    int getFloor() { return floor; }
+
+    void setJumpVelocity(int val) { jumpVelocity = val; }
+    void setJumpCount(int val) { jumpCount = val; }
+    void setGrounded(bool val) { grounded = val; }
 
 private:
     int floor;

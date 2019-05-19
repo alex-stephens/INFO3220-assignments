@@ -2,12 +2,13 @@
 #define STAGE3DIALOG_H
 
 #include "stage2dialog.h"
+#include "flyingstickman.h"
 
 class Stage3Dialog : public Stage2Dialog
 {
 public:
 
-    Stage3Dialog(Game &game, std::unique_ptr<Stickman> stickman, std::unique_ptr<EntityFactory> factory, std::vector<std::pair<std::unique_ptr<Entity>, int>> obstacleLayout);
+    Stage3Dialog(Game &game, std::unique_ptr<FlyingStickman> stickman, std::unique_ptr<EntityFactory> factory, std::vector<std::pair<std::unique_ptr<Entity>, int>> obstacleLayout);
 
     virtual void update() override;
 

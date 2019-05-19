@@ -1,14 +1,4 @@
 #include "stagefactory.h"
-#include "collisiontest.h"
-#include "jumptest.h"
-#include "flyingobstacletest.h"
-#include "swaprendererstage.h"
-#include "testingdialog.h"
-#include "stage2dialog.h"
-#include "stage3dialog.h"
-#include "dialog.h"
-#include "moon.h"
-#include "background.h"
 
 StageFactory::StageFactory(Config config) : config(config) {
 
@@ -18,7 +8,7 @@ std::unique_ptr<GameStage> StageFactory::createStage() {
     if (config.stage == 3) {
         std::cout << "Initialising Stage 3 configuration" << std::endl;
         // Stage 3 non-test mode
-        auto player = std::make_unique<JumpingStickman>(config.coord.getYCoordinate());
+        auto player = std::make_unique<FlyingStickman>(config.coord.getYCoordinate());
         player->setSize(config.size);
         player->setCoordinate(config.coord);
         player->setSprite(":sprites/sprite0.png");

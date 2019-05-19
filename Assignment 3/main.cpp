@@ -9,6 +9,7 @@
 #include <tuple>
 #include "entityfactory.h"
 #include "jumpingstickman.h"
+#include "flyingstickman.h"
 #include "colouredentity.h"
 #include "flyingentity.h"
 #include "stage2dialog.h"
