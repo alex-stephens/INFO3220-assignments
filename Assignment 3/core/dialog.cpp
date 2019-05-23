@@ -3,6 +3,8 @@
 #include "flyingentity.h"
 #include "collision.h"
 
+#include <iostream>
+
 Dialog::Dialog(Game &game, std::unique_ptr<Stickman> stickman, std::unique_ptr<EntityFactory> factory):
     game(game),
     stickman(std::move(stickman)),
@@ -56,6 +58,7 @@ void Dialog::render(Renderer &renderer) {
     stickman->render(renderer, counter);
     score.render(renderer);
     counter++;
+    std::cout << "calling base renderer" << std::endl;
 }
 
 void Dialog::input(QKeyEvent &event) {

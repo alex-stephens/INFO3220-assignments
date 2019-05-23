@@ -161,7 +161,6 @@ int main(int argc, char *argv[]) {
                 return 0;
             }
             stageConfig.numLives = value.toInt();
-            cout << "num lives: " << stageConfig.numLives << endl;
         }
         line = stream.readLine();
     };

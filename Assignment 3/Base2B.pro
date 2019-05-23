@@ -60,7 +60,8 @@ SOURCES += \
     core/testing/testcases/flyingobstacletest.cpp \
     core/stagefactory.cpp \
     core/stage3dialog.cpp \
-    objects/player/flyingstickman.cpp
+    objects/player/flyingstickman.cpp \
+    lives.cpp
 
 HEADERS += \
     objects/entities/colouredentity.h \
@@ -91,7 +92,8 @@ HEADERS += \
     core/testing/testcases/flyingobstacletest.h \
     core/stagefactory.h \
     core/stage3dialog.h \
-    objects/player/flyingstickman.h
+    objects/player/flyingstickman.h \
+    lives.h
 
 FORMS += \
         dialog.ui
