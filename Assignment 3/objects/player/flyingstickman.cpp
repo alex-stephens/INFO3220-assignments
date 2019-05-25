@@ -29,6 +29,29 @@ void FlyingStickman::handleInput(QKeyEvent &event) {
     }
 }
 
+// Resize stickman based on size attribute
+void FlyingStickman::setSprite(std::string path) {
+    QPixmap newSprite(QString::fromStdString(path));
+    if (size.compare("tiny") == 0) {
+        sprite = newSprite.scaledToHeight(24);
+        setJumpImpulse(15);
+
+    } else if(size.compare("normal") == 0) {
+        sprite = newSprite.scaledToHeight(48);
+        setJumpImpulse(15);
+
+    } else if(size.compare("large") == 0) {
+        sprite = newSprite.scaledToHeight(72);
+        setJumpImpulse(20);
+        std::cout << "JUMP INPULSE " << 35 << std::endl;
+
+    } else {
+        sprite = newSprite.scaledToHeight(96);
+        setJumpImpulse(20);
+    }
+}
+
+
 
 void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
     Coordinate &ac = getCoordinate();

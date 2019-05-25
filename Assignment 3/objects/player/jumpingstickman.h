@@ -29,13 +29,15 @@ public:
     int getFloor() { return floor; }
 
     void setJumpVelocity(int val) { jumpVelocity = val; }
+    void setJumpImpulse(int val) { jumpImpulse = val; }
     void setJumpCount(int val) { jumpCount = val; }
     void setGrounded(bool val) { grounded = val; }
 
+
 private:
-    int floor;
     int jumpImpulse;
     int jumpVelocity;
+    int floor;
     int gravity;
     bool grounded;
     int jumpCount;

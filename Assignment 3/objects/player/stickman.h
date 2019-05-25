@@ -20,7 +20,7 @@ public:
 
     void setSize(std::string size);
 
-    void setSprite(std::string path);
+    virtual void setSprite(std::string path);
 
     Coordinate &getCoordinate();
 
@@ -38,11 +38,11 @@ public:
 
 protected:
     bool colliding;
+    std::string size;
+    QPixmap sprite;
 
 private:
     Coordinate coordinate;
-    std::string size;
-    QPixmap sprite;
     int velocity = 5;
 };
 

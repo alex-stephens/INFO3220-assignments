@@ -13,6 +13,8 @@ public:
     virtual void handleInput(QKeyEvent &event);
     virtual void update(std::vector<std::unique_ptr<Entity>> &obstacles) override;
 
+    virtual void setSprite(std::string path) override;
+
 };
 
 #endif // FLYINGSTICKMAN_H
