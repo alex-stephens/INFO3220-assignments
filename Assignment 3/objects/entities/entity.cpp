@@ -97,13 +97,7 @@ void PowerUp::randomiseHeight() {
 }
 
 void PowerUp::collisionLogic(Stickman &player) {
-
-    this->updateCoordinate();
-
-
-    if (Collision::overlaps(player, *this)) {
-//        std::cout << "POWER UP MOTHERFUCKER" << std::endl;
-    }
+    if (!player.isColliding()) this->updateCoordinate();
 }
 
 void PowerUp::randomiseSize() {

@@ -6,17 +6,18 @@
 #include <QPainter>
 #include <QPixmap>
 #include "renderer.h"
+#include "observer.h"
 
 #define SCORE_MOTION 0.1
 #define SCORE_POWERUP 100
 #define SCORE_OBSTACLE 1000
 
-class Score {
+class ScoreObserver : public Observer {
 public:
-    Score();
+    ScoreObserver();
+    virtual ~ScoreObserver();
 
-    void increment();
-    void change(int val);
+    virtual void update(int val);
     void render(Renderer &renderer);
 
 private:

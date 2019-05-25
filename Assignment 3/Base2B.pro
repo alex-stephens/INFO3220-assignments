@@ -46,7 +46,6 @@ SOURCES += \
     rendering/renderer.cpp \
     coordinate.cpp \
     main.cpp \
-    score.cpp \
     core/testing/testcases/collisiontest.cpp \
     core/testing/testcases/jumptest.cpp \
     core/testing/testingdialog.cpp \
@@ -61,7 +60,9 @@ SOURCES += \
     core/stagefactory.cpp \
     core/stage3dialog.cpp \
     objects/player/flyingstickman.cpp \
-    lives.cpp
+    lives.cpp \
+    observer.cpp \
+    scoreobserver.cpp
 
 HEADERS += \
     objects/entities/colouredentity.h \
@@ -78,7 +79,6 @@ HEADERS += \
     rendering/debugrenderer.h \
     rendering/renderer.h \
     coordinate.h \
-    score.h \
     core/testing/testcases/collisiontest.h \
     core/testing/testcases/jumptest.h \
     core/testing/testingdialog.h \
@@ -93,7 +93,9 @@ HEADERS += \
     core/stagefactory.h \
     core/stage3dialog.h \
     objects/player/flyingstickman.h \
-    lives.h
+    lives.h \
+    observer.h \
+    scoreobserver.h
 
 FORMS += \
         dialog.ui

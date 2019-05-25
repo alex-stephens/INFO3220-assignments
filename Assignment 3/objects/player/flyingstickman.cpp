@@ -10,6 +10,10 @@ FlyingStickman::~FlyingStickman() {
 
 }
 
+void FlyingStickman::notify(int val) {
+
+}
+
 void FlyingStickman::handleInput(QKeyEvent &event) {
 
     if (event.type() == QEvent::KeyPress && !event.isAutoRepeat()) {

@@ -11,7 +11,7 @@
 #include "background.h"
 #include "entity.h"
 #include "moon.h"
-#include "score.h"
+#include "scoreobserver.h"
 #include "entityfactory.h"
 #include "game.h"
 #include "renderer.h"
@@ -46,7 +46,7 @@ protected:
     Background background;
     std::vector<std::unique_ptr<Entity>> obstacles;
     std::vector<std::unique_ptr<Entity>> clouds;
-    Score score;
+    ScoreObserver score;
     int counter;
 
 private:

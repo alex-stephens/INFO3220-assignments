@@ -1,6 +1,6 @@
-#include "score.h"
+#include "scoreobserver.h"
 
-Score::Score():
+ScoreObserver::ScoreObserver():
     hiscore(), currScore(1) {
     for (int i = 0; i < 10; i++) {
         std::string spritePath = ":sprites/" + std::to_string(i) + ".png";
@@ -9,12 +9,11 @@ Score::Score():
     }
 }
 
-void Score::increment() {
-    currScore++;
+ScoreObserver::~ScoreObserver() {
+
 }
 
-
-void Score::change(int val) {
+void ScoreObserver::update(int val) {
     if ((int) currScore + val >= 0) {
         currScore += val;
     }
@@ -24,7 +23,7 @@ void Score::change(int val) {
 }
 
 // Render score from left to right. Requires FILO reading of integer
-void Score::render(Renderer &renderer) {
+void ScoreObserver::render(Renderer &renderer) {
     std::stack<int> number;
     unsigned int score = currScore;
     while (score > 0) {
