@@ -19,6 +19,7 @@ public:
     void setCoordinate(Coordinate coordinate);
 
     void setSize(std::string size);
+    std::string getSize();
 
     virtual void setSprite(std::string path);
 

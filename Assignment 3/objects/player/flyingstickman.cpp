@@ -95,12 +95,17 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
             }
         }
 
-        if (bump && other->getName() == "powerup") {
+        if (bump && (other->getName() == "powerup")) {
             setSize( other->getSizeString());
             it = obstacles.erase(it);
             std::cout << "POWER UP MOTHERFUCKER" << std::endl;
-
         }
+
+        // giant stickman destroys obstacles
+        else if (bump && getSize() == "giant") {
+            it = obstacles.erase(it);
+        }
+
         else {
             ++it;
         }

@@ -107,18 +107,18 @@ void PowerUp::collisionLogic(Stickman &player) {
 }
 
 void PowerUp::randomiseSize() {
-    // 3/12 for tiny, 5/12 for normal, 3/12 for large, 1/12 for giant.
+    // Probabilities: 3/12 for tiny, 4/12 for normal, 3/12 for large, 2/12 for giant.
     int n = rand() % 12;
 
     if (n <= 2) {
         setSize(20,20);
         sizeString = "tiny";
     }
-    else if (n <= 7) {
+    else if (n <= 6) {
         setSize(25,25);
         sizeString = "normal";
     }
-    else if (n <= 10) {
+    else if (n <= 9) {
         setSize(35,35);
         sizeString = "large";
     }
