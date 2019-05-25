@@ -9,6 +9,7 @@ void Stage3Dialog::update() {
     stickman->update(obstacles);
     background.setVelocity(stickman->getVelocity());
     score.change(stickman->getVelocity() * SCORE_MOTION);
+
     stickman->setVelocity(stickman->getVelocity() * 0.9); // motion smoothing -- don't drop to 0 immediately
 
     if (!stickman->isColliding()) {

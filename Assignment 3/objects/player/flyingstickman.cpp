@@ -63,7 +63,7 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
     int newY = ac.getYCoordinate() + getJumpVelocity();
     colliding = false;
 
-    // movement -- keys can be held down
+    // lateral movement
     if (keysPressed.find(Qt::Key_Left) != keysPressed.end() ) {
         setVelocity(-20);
     }
