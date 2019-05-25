@@ -37,8 +37,10 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
     colliding = false;
 
     // Check for collisions
-    for (auto &other : obstacles) {
+    for (auto it = obstacles.begin(); it != obstacles.end(); ) {
+        auto &other = *it;
         Collision::CollisonResult col = Collision::moveCast(*this, *other, getVelocity(), getJumpVelocity());
+        bool bump = false;
 
         if (col.overlapped) {
             int bx = other->getCoordinate().getXCoordinate();
@@ -49,21 +51,35 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
                 setGrounded(true);
                 setJumpCount(0);
                 newY = by + other->height() + 1;
+                bump = true;
             } else if (col.up) {
                 // Hitting obstacle from below
                 setJumpVelocity(0);
                 newY = by - height() - 1;
+                bump = true;
             } else if (col.right) {
-                // Hidding obstacle from the left
+                // Hitting obstacle from the left
                 newX = bx - width() - 1;
                 colliding = true;
+                bump = true;
                 std::cout << "hit from left" << std::endl;
             } else if (col.left) {
-                // Hidding obstacle from the right
+                // Hitting obstacle from the right
                 newX = bx + 1;
                 colliding = true;
+                bump = true;
                 std::cout << "hit from right" << std::endl;
             }
+        }
+
+        if (bump && other->getName() == "powerup") {
+            setSize( other->getSizeString());
+            it = obstacles.erase(it);
+            std::cout << "POWER UP MOTHERFUCKER" << std::endl;
+
+        }
+        else {
+            ++it;
         }
     }
 

@@ -1,5 +1,7 @@
 #include <QBitmap>
 #include "entity.h"
+#include "collision.h"
+#include <iostream>
 
 Entity::Entity(std::string name, Coordinate coordinate, int velocity):
     name(name),
@@ -92,6 +94,38 @@ PowerUp::PowerUp(Coordinate coordinate, int velocity):
 
 void PowerUp::randomiseHeight() {
     this->coordinate.setYCoordinate(150 + 35*(rand() % 4));
+}
+
+void PowerUp::collisionLogic(Stickman &player) {
+
+    this->updateCoordinate();
+
+
+    if (Collision::overlaps(player, *this)) {
+//        std::cout << "POWER UP MOTHERFUCKER" << std::endl;
+    }
+}
+
+void PowerUp::randomiseSize() {
+    // 3/12 for tiny, 5/12 for normal, 3/12 for large, 1/12 for giant.
+    int n = rand() % 12;
+
+    if (n <= 2) {
+        setSize(20,20);
+        sizeString = "tiny";
+    }
+    else if (n <= 7) {
+        setSize(25,25);
+        sizeString = "normal";
+    }
+    else if (n <= 10) {
+        setSize(35,35);
+        sizeString = "large";
+    }
+    else {
+        setSize(50,50);
+        sizeString = "giant";
+    }
 }
 
 Cactus::Cactus(Coordinate coordinate, int velocity):

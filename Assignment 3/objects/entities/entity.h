@@ -31,7 +31,12 @@ public:
 
     virtual std::unique_ptr<Entity> clone();
 
+    virtual std::string getName() { return name; }
+    std::string getSizeString() { return sizeString; }
+
 protected:
+    std::string sizeString;
+
     std::string name;
     Coordinate coordinate;
     int velocity;
@@ -68,7 +73,10 @@ class PowerUp: public Entity {
 public:
     PowerUp(Coordinate coordinate, int velocity);
 
+    virtual void collisionLogic(Stickman &player) override;
+    void randomiseSize();
     void randomiseHeight();
+
 };
 
 #endif // OBSTACLE_H

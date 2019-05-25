@@ -25,19 +25,8 @@ void Stage3Dialog::update() {
         lives.decrement();
     }
 
-//    if (counter % 2 == 0) {
-//        spawnObstacles(counter);
-//    }
-//    else {
-//        spawnPowerUps(counter);
-//    }
     spawnObstacles(counter);
     spawnPowerUps(counter);
-
-
-    for (auto &c : clouds) {
-        c->collisionLogic(*stickman);
-    }
 
     for (auto &o : obstacles) {
         o->collisionLogic(*stickman);
@@ -54,7 +43,7 @@ void Stage3Dialog::spawnPowerUps(unsigned int counter) {
 
 //    auto pwr = new PowerUp(Coordinate(100,100,600), 10);
     std::unique_ptr<PowerUp> powerUp( new PowerUp(Coordinate(1000,150 + rand() % 500,450), 0));
-    powerUp->setSize(30, 30);
+    powerUp->randomiseSize();
 
     // Check for collisions between next obstacle and current obstacles
     bool isOverlapping = false;
