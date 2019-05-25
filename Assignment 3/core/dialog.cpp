@@ -12,7 +12,8 @@ Dialog::Dialog(Game &game, std::unique_ptr<Stickman> stickman, std::unique_ptr<E
     background(),
     obstacles(),
     clouds(),
-    score(),
+//    score(),
+    observer(),
     counter(0),
     night(false),
     moon(),
@@ -20,6 +21,8 @@ Dialog::Dialog(Game &game, std::unique_ptr<Stickman> stickman, std::unique_ptr<E
     cloudSpawnFrame(20) {
         game.resize(800,450);
         game.setStyleSheet("background-color: #F7F7F7;");
+//        auto obs = ScoreObserver();
+//        attach(&obs);
 }
 
 Dialog::~Dialog() {
@@ -31,6 +34,17 @@ void Dialog::setStickman(std::unique_ptr<Stickman> stickman) {
 
 void Dialog::setBackground(Background background) {
     this->background = background;
+}
+
+void Dialog::attach(Observer* obs) {
+    observers.push_back(obs);
+}
+
+void Dialog::updateObservers(int val) {
+    observer.update(val);
+//    for (auto obs : observers) {
+//       obs->update(val);
+//    }
 }
 
 void Dialog::setMoon(Moon moon) {
@@ -49,14 +63,14 @@ void Dialog::update() {
     background.update();
     spawnObstacles(counter);
 //    speedUp(counter);
-    score.update(1);
+    updateObservers(1);
 }
 
 void Dialog::render(Renderer &renderer) {
     renderBackground(renderer, counter);
     renderObstacles(renderer, counter);
     stickman->render(renderer, counter);
-    score.render(renderer);
+    observer.render(renderer);
     counter++;
 }
 

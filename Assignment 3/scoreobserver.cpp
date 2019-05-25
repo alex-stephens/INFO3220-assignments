@@ -9,9 +9,8 @@ ScoreObserver::ScoreObserver():
     }
 }
 
-ScoreObserver::~ScoreObserver() {
-
-}
+//ScoreObserver::~ScoreObserver() {
+//}
 
 void ScoreObserver::update(int val) {
     if ((int) currScore + val >= 0) {

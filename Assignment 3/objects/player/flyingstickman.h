@@ -3,6 +3,7 @@
 
 #include "jumpingstickman.h"
 #include "collision.h"
+#include "scoreobserver.h"
 #include <set>
 
 class FlyingStickman : public JumpingStickman
@@ -15,8 +16,6 @@ public:
     virtual void update(std::vector<std::unique_ptr<Entity>> &obstacles) override;
 
     virtual void setSprite(std::string path) override;
-
-    virtual void notify(int val) override;
 
 protected:
     std::set<int> keysPressed;

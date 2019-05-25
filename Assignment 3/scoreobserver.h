@@ -12,12 +12,15 @@
 #define SCORE_POWERUP 100
 #define SCORE_OBSTACLE 1000
 
+// I decided it was fair game to (somewhat) re-implement Score as an Observer,
+// since scoring wasn't meant to be part of Stage 2.
+
 class ScoreObserver : public Observer {
 public:
     ScoreObserver();
-    virtual ~ScoreObserver();
+    ~ScoreObserver() {}
 
-    virtual void update(int val);
+    void update(int val);
     void render(Renderer &renderer);
 
 private:

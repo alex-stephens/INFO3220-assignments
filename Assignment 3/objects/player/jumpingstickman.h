@@ -23,8 +23,6 @@ public:
     virtual void handleInput(QKeyEvent &event);
     virtual void update(std::vector<std::unique_ptr<Entity>> &obstacles);
 
-//    virtual void notify(int val) override;
-
 
     // getters and setters for stage 3
     int getJumpVelocity() { return jumpVelocity; }

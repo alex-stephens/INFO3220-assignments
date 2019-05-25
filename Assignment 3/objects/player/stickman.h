@@ -30,8 +30,6 @@ public:
     virtual void handleInput(QKeyEvent &event);
     virtual void update(std::vector<std::unique_ptr<Entity>> &obstacles);
 
-    virtual void notify(int val);
-
     bool isColliding();
     int width();
     int height();

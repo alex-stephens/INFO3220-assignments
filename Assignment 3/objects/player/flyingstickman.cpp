@@ -10,9 +10,6 @@ FlyingStickman::~FlyingStickman() {
 
 }
 
-void FlyingStickman::notify(int val) {
-
-}
 
 void FlyingStickman::handleInput(QKeyEvent &event) {
 
