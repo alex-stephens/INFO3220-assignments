@@ -23,6 +23,10 @@ void FlyingStickman::handleInput(QKeyEvent &event) {
     else if (event.key() == Qt::Key_Right) {
         setVelocity(20);
     }
+
+    else if (event.key() == Qt::Key_X) {
+        setSize("giant");
+    }
 }
 
 

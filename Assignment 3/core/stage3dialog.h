@@ -17,6 +17,11 @@ public:
 
     virtual Lives& getLives() { return lives; }
 
+protected:
+    virtual void spawnPowerUps(unsigned int counter);
+
+
+
 private:
     Lives lives;
 

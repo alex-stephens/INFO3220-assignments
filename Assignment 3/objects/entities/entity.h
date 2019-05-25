@@ -64,4 +64,11 @@ public:
     void randomiseHeight();
 };
 
+class PowerUp: public Entity {
+public:
+    PowerUp(Coordinate coordinate, int velocity);
+
+    void randomiseHeight();
+};
+
 #endif // OBSTACLE_H

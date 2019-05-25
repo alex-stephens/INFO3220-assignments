@@ -15,7 +15,7 @@ void Stage3Dialog::update() {
 
         changeDistanceToSpawn(-background.getVelocity());
         background.update();
-//        speedUp(counter);
+        speedUp(counter);
         for (auto &o : obstacles) {
             o->setVelocity(background.getVelocity());
         }
@@ -25,7 +25,15 @@ void Stage3Dialog::update() {
         lives.decrement();
     }
 
+//    if (counter % 2 == 0) {
+//        spawnObstacles(counter);
+//    }
+//    else {
+//        spawnPowerUps(counter);
+//    }
     spawnObstacles(counter);
+    spawnPowerUps(counter);
+
 
     for (auto &c : clouds) {
         c->collisionLogic(*stickman);
@@ -37,7 +45,39 @@ void Stage3Dialog::update() {
 
 }
 
+void Stage3Dialog::spawnPowerUps(unsigned int counter) {
+    // Check if it's time to spawn a powerup
+//    if (counter % 1000 != 0) return;
+    if (rand() % 200 != 0) return; // one in 1000 chance to spawn a powerup
+
+    std::cout << "SPAWNING POWERUP" << std::endl;
+
+//    auto pwr = new PowerUp(Coordinate(100,100,600), 10);
+    std::unique_ptr<PowerUp> powerUp( new PowerUp(Coordinate(1000,150 + rand() % 500,450), 0));
+    powerUp->setSize(30, 30);
+
+    // Check for collisions between next obstacle and current obstacles
+    bool isOverlapping = false;
+    for (auto &o : obstacles) {
+        if (Collision::overlaps(*powerUp, *o)) {
+            isOverlapping = true;
+            break;
+        }
+    }
+
+
+//     Only spawn the obstacle if it isn't colliding with anything
+    if (!isOverlapping) {
+        powerUp->setVelocity(background.getVelocity());
+        addObstacle(std::move(powerUp));
+    }
+
+}
+
+
 void Stage3Dialog::render(Renderer& renderer) {
     Dialog::render(renderer); // Call the base method before doing our own.
     lives.render(renderer);
 }
+
+

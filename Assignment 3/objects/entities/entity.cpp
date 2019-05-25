@@ -83,6 +83,17 @@ void Bird::randomiseHeight() {
     this->coordinate.setYCoordinate(150 + 35*(rand() % 4));
 }
 
+PowerUp::PowerUp(Coordinate coordinate, int velocity):
+    Entity("powerup", coordinate, velocity) {
+    std::string spritePath = ":/sprites" + name + "0.png";
+    QPixmap sprite(QString::fromStdString(spritePath));
+    this->sprite = sprite;
+}
+
+void PowerUp::randomiseHeight() {
+    this->coordinate.setYCoordinate(150 + 35*(rand() % 4));
+}
+
 Cactus::Cactus(Coordinate coordinate, int velocity):
     Entity("cactus", coordinate, velocity) {}
 

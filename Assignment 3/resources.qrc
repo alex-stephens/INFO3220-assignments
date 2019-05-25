@@ -29,5 +29,7 @@
         <file>sprites/sprite0.png</file>
         <file>sprites/sprite1.png</file>
         <file>config.txt</file>
+        <file>sprites/powerup0.png</file>
+        <file>sprites/powerup1.png</file>
     </qresource>
 </RCC>

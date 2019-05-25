@@ -58,7 +58,6 @@ void Dialog::render(Renderer &renderer) {
     stickman->render(renderer, counter);
     score.render(renderer);
     counter++;
-    std::cout << "calling base renderer" << std::endl;
 }
 
 void Dialog::input(QKeyEvent &event) {
