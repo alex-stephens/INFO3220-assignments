@@ -11,21 +11,26 @@ FlyingStickman::~FlyingStickman() {
 }
 
 void FlyingStickman::handleInput(QKeyEvent &event) {
-    if ((event.key() == Qt::Key_Space || event.key() == Qt::Key_Up) && !event.isAutoRepeat() && canJump()) {
+
+    if (event.type() == QEvent::KeyPress && !event.isAutoRepeat()) {
+        keysPressed.insert(event.key());
+    }
+    else if (event.type() == QEvent::KeyRelease && !event.isAutoRepeat()) {
+        for (auto it = keysPressed.begin(); it != keysPressed.end(); ) {
+            if (*it == event.key()) {
+                it = keysPressed.erase(it);
+                std::cout << "key released" << std::endl;
+            }
+            else {
+                ++it;
+            }
+        }
+    }
+
+    // jump -- single press event
+    if (event.type() == QEvent::KeyPress && (event.key() == Qt::Key_Space || event.key() == Qt::Key_Up) && !event.isAutoRepeat() && canJump()) {
         jump();
         std::cout << "jumping" << std::endl;
-    }
-
-    else if (event.key() == Qt::Key_Left ) {
-        setVelocity(-20);
-    }
-
-    else if (event.key() == Qt::Key_Right) {
-        setVelocity(20);
-    }
-
-    else if (event.key() == Qt::Key_X) {
-        setSize("giant");
     }
 }
 
@@ -43,7 +48,6 @@ void FlyingStickman::setSprite(std::string path) {
     } else if(size.compare("large") == 0) {
         sprite = newSprite.scaledToHeight(72);
         setJumpImpulse(20);
-        std::cout << "JUMP INPULSE " << 35 << std::endl;
 
     } else {
         sprite = newSprite.scaledToHeight(96);
@@ -58,6 +62,16 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
     int newX = ac.getXCoordinate() + getVelocity();
     int newY = ac.getYCoordinate() + getJumpVelocity();
     colliding = false;
+
+    // movement -- keys can be held down
+    if (keysPressed.find(Qt::Key_Left) != keysPressed.end() ) {
+        setVelocity(-20);
+    }
+
+    if (keysPressed.find(Qt::Key_Right) != keysPressed.end() ) {
+        setVelocity(20);
+        std::cout << "left key is pressed " << std::endl;
+    }
 
     // Check for collisions
     for (auto it = obstacles.begin(); it != obstacles.end(); ) {

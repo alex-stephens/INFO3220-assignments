@@ -7,11 +7,16 @@
 #include <QPixmap>
 #include "renderer.h"
 
+#define SCORE_MOTION 0.1
+#define SCORE_POWERUP 100
+#define SCORE_OBSTACLE 1000
+
 class Score {
 public:
     Score();
 
     void increment();
+    void change(int val);
     void render(Renderer &renderer);
 
 private:

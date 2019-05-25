@@ -13,6 +13,16 @@ void Score::increment() {
     currScore++;
 }
 
+
+void Score::change(int val) {
+    if ((int) currScore + val >= 0) {
+        currScore += val;
+    }
+    else {
+        currScore = 0;
+    }
+}
+
 // Render score from left to right. Requires FILO reading of integer
 void Score::render(Renderer &renderer) {
     std::stack<int> number;
