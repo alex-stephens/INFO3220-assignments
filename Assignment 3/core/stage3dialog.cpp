@@ -30,8 +30,21 @@ void Stage3Dialog::update() {
     spawnObstacles(counter);
     spawnPowerUps(counter);
 
+    bool col = false;
     for (auto &o : obstacles) {
         o->collisionLogic(*stickman);
+        if (stickman->isColliding()) {
+            col = true;
+        }
+    }
+
+    // restart the level if colliding sidelong with an obstacle
+    if (col) {
+        nextObstacle = 0;
+        distanceToSpawn = 1000;
+        for (auto it = obstacles.begin(); it != obstacles.end(); ) {
+            obstacles.erase(it);
+        }
     }
 
 }

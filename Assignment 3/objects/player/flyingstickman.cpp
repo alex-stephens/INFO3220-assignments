@@ -71,7 +71,6 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
 
     if (keysPressed.find(Qt::Key_Right) != keysPressed.end() ) {
         setVelocity(20);
-        std::cout << "left key is pressed " << std::endl;
     }
 
     // Check for collisions
@@ -100,20 +99,17 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
                 newX = bx - width() - 1;
                 colliding = true;
                 bump = true;
-                std::cout << "hit from left" << std::endl;
             } else if (col.left) {
                 // Hitting obstacle from the right
                 newX = bx + 1;
                 colliding = true;
                 bump = true;
-                std::cout << "hit from right" << std::endl;
             }
         }
 
         if (bump && (other->getName() == "powerup")) {
             setSize( other->getSizeString());
             it = obstacles.erase(it);
-            std::cout << "POWER UP MOTHERFUCKER" << std::endl;
         }
 
         // giant stickman destroys obstacles
@@ -124,6 +120,7 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
         else {
             ++it;
         }
+
     }
 
     // Check if we're below the floor
@@ -141,4 +138,6 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
     ac.setYCoordinate(newY);
 //    ac.setXCoordinate(newX);
     setJumpVelocity(getJumpVelocity() + getGravity());
+
+
 }
