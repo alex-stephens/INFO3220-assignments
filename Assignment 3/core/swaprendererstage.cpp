@@ -6,7 +6,7 @@ SwapRendererStage::SwapRendererStage(std::unique_ptr<GameStage> stage) : GameSta
 }
 
 void SwapRendererStage::input(QKeyEvent &event) {
-    if (event.key() == Qt::Key_1) {
+    if (event.type() == QEvent::KeyPress && event.key() == Qt::Key_1) {
         debug = !debug;
     }
     GameStageDecorator::input(event);
