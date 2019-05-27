@@ -33,7 +33,7 @@ void Stage3Dialog::update() {
     bool col = false;
     for (auto &o : obstacles) {
         o->collisionLogic(*stickman);
-        if (stickman->isColliding()) {
+        if (stickman->isColliding() && o->getName() != "powerup" && stickman->getSize() != "giant") {
             col = true;
         }
     }
@@ -45,6 +45,7 @@ void Stage3Dialog::update() {
         for (auto it = obstacles.begin(); it != obstacles.end(); ) {
             obstacles.erase(it);
         }
+        updateObservers(-INT_MAX);
     }
 
 }

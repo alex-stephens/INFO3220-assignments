@@ -18,7 +18,7 @@ std::unique_ptr<GameStage> StageFactory::createStage() {
 
         auto stage = std::make_unique<Stage3Dialog>(*config.game, std::move(player), std::move(factory), std::move(*config.obstacles));
 
-        stage->getLives().setLives(5);
+        stage->getLives().setLives(config.numLives);
 
         Background bg;
         bg.setCoordinate(Coordinate(0, 150, 450));

@@ -42,6 +42,7 @@ void Dialog::attach(Observer* obs) {
 
 void Dialog::updateObservers(int val) {
     observer.update(val);
+    // update all observers - couldn't get this to work :(
 //    for (auto obs : observers) {
 //       obs->update(val);
 //    }
