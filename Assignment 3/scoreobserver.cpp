@@ -1,7 +1,7 @@
 #include "scoreobserver.h"
 
 ScoreObserver::ScoreObserver():
-    hiscore(), currScore(1) {
+    hiscore(), currScore(0) {
     for (int i = 0; i < 10; i++) {
         std::string spritePath = ":sprites/" + std::to_string(i) + ".png";
         QPixmap sprite(QString::fromStdString(spritePath));
@@ -25,6 +25,10 @@ void ScoreObserver::update(int val) {
 void ScoreObserver::render(Renderer &renderer) {
     std::stack<int> number;
     unsigned int score = currScore;
+
+    if (score == 0) {
+        number.push(score);
+    }
     while (score > 0) {
         number.push(score % 10);
         score = score / 10;

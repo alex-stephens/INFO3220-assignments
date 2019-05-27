@@ -45,7 +45,7 @@ void Stage3Dialog::update() {
         for (auto it = obstacles.begin(); it != obstacles.end(); ) {
             obstacles.erase(it);
         }
-        updateObservers(-INT_MAX);
+        updateObservers(-INT_MAX); // set score to zero
     }
 
 }
