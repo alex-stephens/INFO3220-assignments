@@ -36,6 +36,10 @@ void Stage3Dialog::update() {
         if (stickman->isColliding() && o->getName() != "powerup" && stickman->getSize() != "giant") {
             col = true;
         }
+
+        if (stickman->isColliding() && o->getName() == "powerup") {
+            updateObservers(10000);
+        }
     }
 
     // restart the level if colliding sidelong with an obstacle
@@ -52,13 +56,12 @@ void Stage3Dialog::update() {
 
 void Stage3Dialog::spawnPowerUps(unsigned int counter) {
     // Check if it's time to spawn a powerup
-//    if (counter % 1000 != 0) return;
-    if (rand() % 200 != 0) return; // one in 1000 chance to spawn a powerup
+
+    if (rand() % 300 != 0) return; // one in 300 chance to spawn a powerup
 
     std::cout << "SPAWNING POWERUP" << std::endl;
 
-//    auto pwr = new PowerUp(Coordinate(100,100,600), 10);
-    std::unique_ptr<PowerUp> powerUp( new PowerUp(Coordinate(1000,150 + rand() % 500,450), 0));
+    std::unique_ptr<PowerUp> powerUp( new PowerUp(Coordinate(1000 + rand()%1000,150 + rand()%500,450), 0));
     powerUp->randomiseSize();
 
     // Check for collisions between next obstacle and current obstacles

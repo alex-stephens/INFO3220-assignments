@@ -16,6 +16,7 @@ public:
     virtual void update(std::vector<std::unique_ptr<Entity>> &obstacles) override;
 
     virtual void setSprite(std::string path) override;
+    virtual void render(Renderer &renderer, unsigned int time) override;
 
 protected:
     std::set<int> keysPressed;

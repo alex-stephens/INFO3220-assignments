@@ -25,7 +25,7 @@ public:
 
     Coordinate &getCoordinate();
 
-    void render(Renderer &renderer, unsigned int time);
+    virtual void render(Renderer &renderer, unsigned int time);
 
     virtual void handleInput(QKeyEvent &event);
     virtual void update(std::vector<std::unique_ptr<Entity>> &obstacles);
@@ -41,9 +41,9 @@ protected:
     bool colliding;
     std::string size;
     QPixmap sprite;
+    Coordinate coordinate;
 
 private:
-    Coordinate coordinate;
     int velocity = 5;
 };
 

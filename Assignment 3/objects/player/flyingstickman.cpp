@@ -141,3 +141,20 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
 
 
 }
+
+// Draw and update stickman position
+void FlyingStickman::render(Renderer &renderer, unsigned int time) {
+    renderer.draw(coordinate.getQtRenderingXCoordinate(), coordinate.getQtRenderingYCoordinate() - sprite.height(), sprite);
+    std::string spritePath = ":sprites/sprite";
+
+    // use mirrored sprite if moving to the left
+    if (getVelocity() < 0) {
+        spritePath = ":sprites/sprite_rev";
+    }
+
+    // only update the sprite if the stickman is moving
+    if (getVelocity() != 0) {
+        this->setSprite(spritePath.append(std::to_string((time/5)%2)).append(".png"));
+    }
+}
+

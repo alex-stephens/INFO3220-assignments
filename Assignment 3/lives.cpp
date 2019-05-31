@@ -27,7 +27,7 @@ void Lives::render(Renderer &renderer) {
 
     int length = number.size();
     for (int i = 0; i < length; i++) {
-        renderer.draw(700+i*10, 40, digits[number.top()]);
+        renderer.draw(50+i*10, 20, digits[number.top()]);
         number.pop();
     }
 }
