@@ -57,7 +57,6 @@ protected:
     std::vector<Observer*> observers;
     ScoreObserver observer;
 
-
 private:
     bool night;
     Moon moon;

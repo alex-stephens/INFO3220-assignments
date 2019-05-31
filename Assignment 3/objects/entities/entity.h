@@ -69,6 +69,7 @@ public:
     void randomiseHeight();
 };
 
+// entity.h is a mess but defined these here to stay consistent with the base code
 class PowerUp: public Entity {
 public:
     PowerUp(Coordinate coordinate, int velocity);
@@ -77,6 +78,15 @@ public:
     void randomiseSize();
     void randomiseHeight();
 
+};
+
+// entity.h is a mess but defined these here to stay consistent with the base code
+class Coin: public Entity {
+public:
+    Coin(Coordinate coordinate, int velocity);
+
+    virtual void collisionLogic(Stickman &player) override;
+    void randomiseSize();
 };
 
 #endif // OBSTACLE_H

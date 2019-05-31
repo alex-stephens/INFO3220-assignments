@@ -19,6 +19,7 @@ public:
 
 protected:
     virtual void spawnPowerUps(unsigned int counter);
+    virtual void spawnCoins(unsigned int counter);
 
 
 

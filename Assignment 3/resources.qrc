@@ -33,5 +33,7 @@
         <file>sprites/powerup1.png</file>
         <file>sprites/sprite_rev0.png</file>
         <file>sprites/sprite_rev1.png</file>
+        <file>sprites/coin0.png</file>
+        <file>sprites/coin1.png</file>
     </qresource>
 </RCC>

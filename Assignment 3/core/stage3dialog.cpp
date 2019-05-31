@@ -8,7 +8,7 @@ Stage3Dialog::Stage3Dialog(Game &game, std::unique_ptr<FlyingStickman> stickman,
 void Stage3Dialog::update() {
     stickman->update(obstacles);
     background.setVelocity(stickman->getVelocity());
-    updateObservers(stickman->getVelocity() * SCORE_MOTION);
+//    updateObservers(stickman->getVelocity() * SCORE_MOTION);
 
     stickman->setVelocity(stickman->getVelocity() * 0.9); // motion smoothing -- don't drop to 0 immediately
 
@@ -29,16 +29,17 @@ void Stage3Dialog::update() {
 
     spawnObstacles(counter);
     spawnPowerUps(counter);
+    spawnCoins(counter);
 
     bool col = false;
     for (auto &o : obstacles) {
         o->collisionLogic(*stickman);
-        if (stickman->isColliding() && o->getName() != "powerup" && stickman->getSize() != "giant") {
+        if (stickman->isColliding() && (o->getName() != "powerup" && o->getName() != "coin") && stickman->getSize() != "giant") {
             col = true;
         }
 
-        if (stickman->isColliding() && o->getName() == "powerup") {
-            updateObservers(10000);
+        if (o->getName() == "coin" && Collision::overlaps(*stickman, *o)) {
+            updateObservers(500);
         }
     }
 
@@ -81,6 +82,33 @@ void Stage3Dialog::spawnPowerUps(unsigned int counter) {
     }
 
 }
+
+void Stage3Dialog::spawnCoins(unsigned int counter) {
+    // Check if it's time to spawn a powerup
+
+    if (rand() % 50 != 0) return; // one in 300 chance to spawn a powerup
+
+    std::cout << "SPAWNING COIN" << std::endl;
+
+    std::unique_ptr<Coin> coin( new Coin(Coordinate(1000 + rand()%1000,150 + rand()%500,450), 0));
+
+    // Check for collisions between next obstacle and current obstacles
+    bool isOverlapping = false;
+    for (auto &o : obstacles) {
+        if (Collision::overlaps(*coin, *o)) {
+            isOverlapping = true;
+            break;
+        }
+    }
+
+
+//     Only spawn the coin if it isn't colliding with anything
+    if (!isOverlapping) {
+        coin->setVelocity(background.getVelocity());
+        addObstacle(std::move(coin));
+    }
+}
+
 
 
 void Stage3Dialog::render(Renderer& renderer) {

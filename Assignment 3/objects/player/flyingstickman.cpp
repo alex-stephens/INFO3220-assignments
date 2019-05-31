@@ -62,22 +62,23 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
     Coordinate &ac = getCoordinate();
     int newX = ac.getXCoordinate() + getVelocity();
     int newY = ac.getYCoordinate() + getJumpVelocity();
+    bool bump;
     colliding = false;
 
     // lateral movement
     if (keysPressed.find(Qt::Key_Left) != keysPressed.end() ) {
-        setVelocity(-20);
+        setVelocity(-10);
     }
 
     if (keysPressed.find(Qt::Key_Right) != keysPressed.end() ) {
-        setVelocity(20);
+        setVelocity(10);
     }
 
     // Check for collisions
     for (auto it = obstacles.begin(); it != obstacles.end(); ) {
         auto &other = *it;
         Collision::CollisonResult col = Collision::moveCast(*this, *other, getVelocity(), getJumpVelocity());
-        bool bump = false;
+        bump = false;
 
         if (col.overlapped) {
             int bx = other->getCoordinate().getXCoordinate();
@@ -107,9 +108,17 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
             }
         }
 
+        // set size from powerup
         if (bump && (other->getName() == "powerup")) {
             setSize( other->getSizeString());
             it = obstacles.erase(it);
+            colliding = false;
+        }
+
+        // update score from coin
+        if (bump && (other->getName() == "coin")) {
+            it = obstacles.erase(it);
+            colliding = false;
         }
 
         // giant stickman destroys obstacles
@@ -129,10 +138,6 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
         setGrounded(true);
         setJumpVelocity(0);
         setJumpCount(0);
-    }
-
-    if (colliding) {
-        setVelocity(0);
     }
 
     ac.setYCoordinate(newY);

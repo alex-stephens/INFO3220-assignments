@@ -122,6 +122,19 @@ void PowerUp::randomiseSize() {
     }
 }
 
+Coin::Coin(Coordinate coordinate, int velocity):
+    Entity("coin", coordinate, velocity) {
+    std::string spritePath = ":/sprites" + name + "0.png";
+    QPixmap sprite(QString::fromStdString(spritePath));
+    setSize(30,30);
+    this->sprite = sprite;
+}
+
+void Coin::collisionLogic(Stickman &player) {
+    if (!player.isColliding()) this->updateCoordinate();
+}
+
+
 Cactus::Cactus(Coordinate coordinate, int velocity):
     Entity("cactus", coordinate, velocity) {}
 
