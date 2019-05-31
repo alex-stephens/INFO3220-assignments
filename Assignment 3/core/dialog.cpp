@@ -13,7 +13,6 @@ Dialog::Dialog(Game &game, std::unique_ptr<Stickman> stickman, std::unique_ptr<E
     obstacles(),
     clouds(),
 //    score(),
-    observer(),
     counter(0),
     night(false),
     moon(),
@@ -36,18 +35,6 @@ void Dialog::setBackground(Background background) {
     this->background = background;
 }
 
-void Dialog::attach(Observer* obs) {
-    observers.push_back(obs);
-}
-
-void Dialog::updateObservers(int val) {
-    observer.update(val);
-    // update all observers - couldn't get this to work :(
-//    for (auto obs : observers) {
-//       obs->update(val);
-//    }
-}
-
 void Dialog::setMoon(Moon moon) {
     this->moon = moon;
 }
@@ -64,14 +51,12 @@ void Dialog::update() {
     background.update();
     spawnObstacles(counter);
 //    speedUp(counter);
-    updateObservers(1);
 }
 
 void Dialog::render(Renderer &renderer) {
     renderBackground(renderer, counter);
     renderObstacles(renderer, counter);
     stickman->render(renderer, counter);
-    observer.render(renderer);
     counter++;
 }
 

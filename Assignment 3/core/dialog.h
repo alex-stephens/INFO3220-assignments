@@ -15,7 +15,6 @@
 #include "entityfactory.h"
 #include "game.h"
 #include "renderer.h"
-#include "scoreobserver.h"
 
 #define OFFSCREEN_BUFFER 1000 // objects aren't deleted until they're this far off screen to the left
 
@@ -49,13 +48,6 @@ protected:
     std::vector<std::unique_ptr<Entity>> clouds;
 //    ScoreObserver score;
     int counter;
-
-    void attach(Observer* obs);
-    void updateObservers(int val);
-
-protected:
-    std::vector<Observer*> observers;
-    ScoreObserver observer;
 
 private:
     bool night;

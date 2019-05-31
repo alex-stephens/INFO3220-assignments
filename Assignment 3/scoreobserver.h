@@ -9,8 +9,8 @@
 #include "observer.h"
 
 #define SCORE_MOTION 0.1
-#define SCORE_POWERUP 100
-#define SCORE_OBSTACLE 1000
+#define SCORE_POWERUP 1000
+#define SCORE_OBSTACLE 5000
 
 // I decided it was fair game to (somewhat) re-implement Score as an Observer,
 // since scoring wasn't meant to be part of Stage 2.

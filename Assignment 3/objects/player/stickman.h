@@ -4,11 +4,13 @@
 #include "gameobject.h"
 #include "coordinate.h"
 #include "renderer.h"
+#include "scoreobserver.h"
 #include <string>
 #include <QPainter>
 #include <QKeyEvent>
 #include <vector>
 #include <memory>
+
 
 class Entity;
 class Stickman : public GameObject {
@@ -37,11 +39,18 @@ public:
     int getVelocity() { return velocity; }
     void setVelocity(int val) { velocity = val; }
 
+    void attach(Observer* obs);
+    void updateObservers(int val);
+
 protected:
+    std::vector<Observer*> observers;
+    ScoreObserver observer;
+
     bool colliding;
     std::string size;
     QPixmap sprite;
     Coordinate coordinate;
+
 
 private:
     int velocity = 5;

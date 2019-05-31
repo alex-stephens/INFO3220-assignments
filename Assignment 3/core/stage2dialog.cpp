@@ -41,7 +41,6 @@ void Stage2Dialog::update() {
         distanceToSpawn -= background.getVelocity();
         background.update();
         speedUp(counter);
-        updateObservers(1);
     }
     spawnObstacles(counter);
 

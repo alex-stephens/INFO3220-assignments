@@ -2,7 +2,7 @@
 #include <iostream>
 
 FlyingStickman::FlyingStickman(int floor, int jumpImpulse, int maxJumpCount, int gravity) :
-    JumpingStickman(floor, jumpImpulse, maxJumpCount, gravity)  {
+    JumpingStickman(floor, jumpImpulse, maxJumpCount, gravity) {
 
 }
 
@@ -119,11 +119,13 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
         if (bump && (other->getName() == "coin")) {
             it = obstacles.erase(it);
             colliding = false;
+            updateObservers(SCORE_POWERUP);
         }
 
         // giant stickman destroys obstacles
         else if (bump && getSize() == "giant") {
             it = obstacles.erase(it);
+            updateObservers(SCORE_OBSTACLE);
         }
 
         else {
@@ -144,6 +146,8 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
 //    ac.setXCoordinate(newX);
     setJumpVelocity(getJumpVelocity() + getGravity());
 
+    // update observer score from motion
+    updateObservers(getVelocity() * SCORE_MOTION);
 
 }
 
@@ -151,6 +155,8 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
 void FlyingStickman::render(Renderer &renderer, unsigned int time) {
     renderer.draw(coordinate.getQtRenderingXCoordinate(), coordinate.getQtRenderingYCoordinate() - sprite.height(), sprite);
     std::string spritePath = ":sprites/sprite";
+
+    observer.render(renderer);
 
     // use mirrored sprite if moving to the left
     if (getVelocity() < 0) {

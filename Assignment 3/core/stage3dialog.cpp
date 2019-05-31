@@ -38,9 +38,9 @@ void Stage3Dialog::update() {
             col = true;
         }
 
-        if (o->getName() == "coin" && Collision::overlaps(*stickman, *o)) {
-            updateObservers(500);
-        }
+//        if (o->getName() == "coin" && Collision::overlaps(*stickman, *o)) {
+//            stickman->updateObservers(500);
+//        }
     }
 
     // restart the level if colliding sidelong with an obstacle
@@ -50,7 +50,7 @@ void Stage3Dialog::update() {
         for (auto it = obstacles.begin(); it != obstacles.end(); ) {
             obstacles.erase(it);
         }
-        updateObservers(-INT_MAX); // set score to zero
+        stickman->updateObservers(-INT_MAX); // set score to zero
     }
 
 }

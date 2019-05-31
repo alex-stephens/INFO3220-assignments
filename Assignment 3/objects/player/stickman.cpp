@@ -45,6 +45,18 @@ void Stickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
 
 }
 
+void Stickman::attach(Observer* obs) {
+    observers.push_back(obs);
+}
+
+void Stickman::updateObservers(int val) {
+    observer.update(val);
+    // update all observers - couldn't get this to work :(
+//    for (auto obs : observers) {
+//       obs->update(val);
+//    }
+}
+
 bool Stickman::isColliding() {
     return colliding;
 }
