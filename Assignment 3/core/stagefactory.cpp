@@ -6,8 +6,7 @@ StageFactory::StageFactory(Config config) : config(config) {
 
 std::unique_ptr<GameStage> StageFactory::createStage() {
     if (config.stage == 3) {
-        std::cout << "Initialising Stage 3 configuration" << std::endl;
-        // Stage 3 non-test mode
+        // Stage 3 main mode
         auto player = std::make_unique<FlyingStickman>(config.coord.getYCoordinate());
         player->setSize(config.size);
         player->setCoordinate(config.coord);

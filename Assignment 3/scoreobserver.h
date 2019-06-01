@@ -18,7 +18,7 @@
 class ScoreObserver : public Observer {
 public:
     ScoreObserver();
-    ~ScoreObserver() {}
+    ~ScoreObserver();
 
     void update(int val);
     void render(Renderer &renderer);

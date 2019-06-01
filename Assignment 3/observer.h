@@ -7,7 +7,7 @@ class Observer
 {
 public:
     Observer();
-    ~Observer() {}
+    ~Observer();
 
     void render(Renderer &renderer);
     void update(int val);

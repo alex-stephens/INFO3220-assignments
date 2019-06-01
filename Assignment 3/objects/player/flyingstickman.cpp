@@ -20,7 +20,6 @@ void FlyingStickman::handleInput(QKeyEvent &event) {
         for (auto it = keysPressed.begin(); it != keysPressed.end(); ) {
             if (*it == event.key()) {
                 it = keysPressed.erase(it);
-                std::cout << "key released" << std::endl;
             }
             else {
                 ++it;
@@ -31,7 +30,6 @@ void FlyingStickman::handleInput(QKeyEvent &event) {
     // jump -- single press event
     if (event.type() == QEvent::KeyPress && (event.key() == Qt::Key_Space || event.key() == Qt::Key_Up) && !event.isAutoRepeat() && canJump()) {
         jump();
-        std::cout << "jumping" << std::endl;
     }
 }
 
@@ -131,7 +129,6 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
         else {
             ++it;
         }
-
     }
 
     // Check if we're below the floor
@@ -143,7 +140,6 @@ void FlyingStickman::update(std::vector<std::unique_ptr<Entity>> &obstacles) {
     }
 
     ac.setYCoordinate(newY);
-//    ac.setXCoordinate(newX);
     setJumpVelocity(getJumpVelocity() + getGravity());
 
     // update observer score from motion

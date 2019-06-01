@@ -12,7 +12,6 @@ Lives::Lives() {
 void Lives::decrement() {
     if (numLives > 0) {
         numLives--;
-        std::cout << "lives reduced to: " << numLives << std::endl;
     }
 }
 

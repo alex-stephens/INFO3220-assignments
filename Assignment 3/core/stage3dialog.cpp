@@ -8,13 +8,10 @@ Stage3Dialog::Stage3Dialog(Game &game, std::unique_ptr<FlyingStickman> stickman,
 void Stage3Dialog::update() {
     stickman->update(obstacles);
     background.setVelocity(stickman->getVelocity());
-//    updateObservers(stickman->getVelocity() * SCORE_MOTION);
-
     stickman->setVelocity(stickman->getVelocity() * 0.9); // motion smoothing -- don't drop to 0 immediately
 
     if (!stickman->isColliding()) {
-        // Reduce distance to next obstacle
-
+        // Update distance to next obstacle
         changeDistanceToSpawn(-background.getVelocity());
         background.update();
         speedUp(counter);
@@ -37,10 +34,6 @@ void Stage3Dialog::update() {
         if (stickman->isColliding() && (o->getName() != "powerup" && o->getName() != "coin") && stickman->getSize() != "giant") {
             col = true;
         }
-
-//        if (o->getName() == "coin" && Collision::overlaps(*stickman, *o)) {
-//            stickman->updateObservers(500);
-//        }
     }
 
     // restart the level if colliding sidelong with an obstacle
@@ -52,15 +45,11 @@ void Stage3Dialog::update() {
         }
         stickman->updateObservers(-INT_MAX); // set score to zero
     }
-
 }
 
 void Stage3Dialog::spawnPowerUps(unsigned int counter) {
-    // Check if it's time to spawn a powerup
 
     if (rand() % 300 != 0) return; // one in 300 chance to spawn a powerup
-
-    std::cout << "SPAWNING POWERUP" << std::endl;
 
     std::unique_ptr<PowerUp> powerUp( new PowerUp(Coordinate(1000 + rand()%1000,150 + rand()%500,450), 0));
     powerUp->randomiseSize();
@@ -74,21 +63,16 @@ void Stage3Dialog::spawnPowerUps(unsigned int counter) {
         }
     }
 
-
-//     Only spawn the obstacle if it isn't colliding with anything
+    // Only spawn the obstacle if it isn't colliding with anything
     if (!isOverlapping) {
         powerUp->setVelocity(background.getVelocity());
         addObstacle(std::move(powerUp));
     }
-
 }
 
 void Stage3Dialog::spawnCoins(unsigned int counter) {
-    // Check if it's time to spawn a powerup
 
     if (rand() % 50 != 0) return; // one in 300 chance to spawn a powerup
-
-    std::cout << "SPAWNING COIN" << std::endl;
 
     std::unique_ptr<Coin> coin( new Coin(Coordinate(1000 + rand()%1000,150 + rand()%500,450), 0));
 
@@ -101,8 +85,7 @@ void Stage3Dialog::spawnCoins(unsigned int counter) {
         }
     }
 
-
-//     Only spawn the coin if it isn't colliding with anything
+    // Only spawn the coin if it isn't colliding with anything
     if (!isOverlapping) {
         coin->setVelocity(background.getVelocity());
         addObstacle(std::move(coin));

@@ -9,8 +9,9 @@ ScoreObserver::ScoreObserver():
     }
 }
 
-//ScoreObserver::~ScoreObserver() {
-//}
+ScoreObserver::~ScoreObserver() {
+
+}
 
 void ScoreObserver::update(int val) {
     if ((int) currScore + val >= 0) {
@@ -26,9 +27,11 @@ void ScoreObserver::render(Renderer &renderer) {
     std::stack<int> number;
     unsigned int score = currScore;
 
+    // render zero score
     if (score == 0) {
         number.push(score);
     }
+
     while (score > 0) {
         number.push(score % 10);
         score = score / 10;

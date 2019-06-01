@@ -24,7 +24,6 @@ bool JumpingStickman::canJump() {
 void JumpingStickman::handleInput(QKeyEvent &event) {
     if (event.type() == QEvent::KeyPress && event.key() == Qt::Key_Space && !event.isAutoRepeat() && canJump()) {
         jump();
-        std::cout << "level 2 jump " << std::endl;
     }
 }
 
