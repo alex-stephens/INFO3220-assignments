@@ -1,5 +1,11 @@
 # README Stage 3
 
+## Video Demonstration
+
+I created a video to give a **quick demo** showing that my code compiles and runs, and briefly demonstrates some of the features that were implemented. This is not comprehensive since I wanted to keep it short, more just to show that a bunch of the stuff actually does work.
+
+[Here's the video link.](https://www.youtube.com/watch?v=07eBa-xlvj8)
+
 ## Marking overview
 
 I have not implemented all of the assignment requirements. To (maybe) save you a bit of time with marking, here's an overview of what I have and haven't done:
