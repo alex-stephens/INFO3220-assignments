@@ -31,8 +31,8 @@ I have not implemented all of the assignment requirements. To (maybe) save you a
 
 ## Extensions 
 
-1. Stickman sprite now walks in the correct direction, and stops moving when velocity is zero (**small-medium** extension)
-2. Scoring mechanism - user gains score from any of the following actions (**medium** extension)
+1. **Improved sprite rendering**: the sprite now walks in the correct direction, and stops moving when velocity is zero (**small-medium** extension). This is implemented by adding additional logic to the Stage 3 stickman rendering behaviour to account for direction of motion or when the stickman stops. 
+2. **Scoring mechanism**: implemented using the **Observer** design pattern - the Stickman's actions that can cause a score update cause a ping to be sent to all active observers, resulting in an update to the score displayed on the screen. The user gains score from any of the following actions (**medium** extension)
     * Distance travelled to the right (+1 per ten pixels travelled)
     * Pickup up coins (+1000 points)
     * Destroying an obstacle while `giant` size (+5000 points)
